@@ -1,0 +1,43 @@
+@import "../common/variables";
+
+.pagination {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    line-height: 1;
+    display: inline-flex;
+    overflow: hidden;
+    @include font-size(18px);
+    li {
+        height: 32px;
+        border-right: 1px solid #dddddd;
+        &:last-child {
+            border-right-width: 0;
+        }
+    }
+    .disabled {
+        color: #dddddd;
+        cursor: not-allowed;
+    }
+    .disabled, .active-text, a {
+        height: inherit;
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+    }
+    .active-text {
+        cursor: default;
+        position: relative;
+        color: #fff;
+        background-color: $pink;
+        outline: 1px solid $pink;
+    }
+    a {
+        outline: 1px solid transparent;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: $black;
+            outline-color: $black;
+            color: $pink;
+        }
+    }
+}

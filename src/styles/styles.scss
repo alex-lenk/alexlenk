@@ -1,0 +1,77 @@
+@import 'lib/breakpoint';
+@import 'lib/breakpoint-slicer';
+/* common */
+@import "common/variables";
+@import "common/mixin";
+@import "common/fonts";
+@import "common/common";
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+    position: relative;
+    color: #fff;
+    background: rgb(127, 153, 223);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(127, 153, 223, 1) 0%, rgba(93, 127, 223, 1) 25%, rgba(42, 82, 190, 1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(127, 153, 223, 1) 0%, rgba(93, 127, 223, 1) 25%, rgba(42, 82, 190, 1) 100%);
+    background: radial-gradient(ellipse at center, rgba(127, 153, 223, 1) 0%, rgba(93, 127, 223, 1) 25%, rgba(42, 82, 190, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7f99df', endColorstr='#2a52be', GradientType=1);
+    &::before {
+        width: 100%;
+        height: 29px;
+        top: 10px;
+        left: 0;
+        position: absolute;
+        background: url(../img/ruler.png) repeat-x top left;
+        content: '';
+    }
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.header-center {
+    margin: auto 0;
+    padding-bottom: 200px;
+}
+
+.header-title {
+    margin-bottom: 100px;
+    font-size: 72px;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header-title-html {
+    margin-right: 170px;
+}
+
+.header-title-css {
+    transform: translateX(-90px);
+}
+
+.header-title-center {
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.header-text {
+    margin-bottom: auto;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.3);
+}

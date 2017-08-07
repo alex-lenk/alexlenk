@@ -1,0 +1,24 @@
+.product-sort {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.filter-total {
+    margin-right: auto;
+}
+
+.sort-by .sort {
+    margin-left: 15px;
+    color: #333;
+}
+
+.show-by {
+    display: inline-flex;
+    align-items: baseline;
+    .select-custom {
+        width: 70px;
+        margin-left: 15px;
+    }
+}
