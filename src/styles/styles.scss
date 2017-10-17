@@ -11,9 +11,125 @@
 .container {
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.our-work {
-    background-color: #fcf9f7;
+.html-work {
+    height: 100vh;
+    background-color: #2b323c;
+    position: relative;
+    &::before {
+        width: 100%;
+        height: 100%;
+        background: url(../img/bg.svg) no-repeat;
+        background-size: cover;
+        top: 0;
+        left: 0;
+        position: absolute;
+        opacity: .05;
+        content: '';
+    }
+    .section-layer {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.section-layer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-title {
+    margin-bottom: 70px;
+    color: #9dacc2;
+    font-size: 48px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.html-work-list {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        max-width: calc(100% / 3);
+        flex-basis: calc(100% / 3);
+    }
+    img {
+        border: 3px solid #9dacc2;
+    }
+}
+
+.html-work-title {
+    text-align: center;
+    color: #9dacc2;
+    text-transform: uppercase;
+    margin-top: 15px;
+    a {
+        color: inherit;
+    }
+}
+
+.html-work-media {
+}
+
+@include from('m') {
+    .header-center {
+        padding-bottom: 200px;
+    }
+    
+    .header-title {
+        margin-bottom: 100px;
+    }
+    .header-title-html {
+        margin-right: 170px;
+    }
+    .header-title-css {
+        transform: translateX(-90px);
+    }
+    .header-title-css__text {
+        height: 63px;
+    }
+    .header-title-center {
+        margin-top: 40px;
+    }
+}
+
+@include from('s') {
+    .header-text {
+        font-size: 30px;
+    }
+}
+
+@include to('s') {
+    .header-title {
+        margin-bottom: 50px;
+        font-size: 50px;
+    }
+    .header-title-html {
+        width: 100%;
+    }
+    .header-title-css {
+        margin: 15px 0;
+    }
+}
+
+@include to('xs') {
+    header {
+        padding-top: 50px;
+    }
+    .header-text {
+        font-size: 20px;
+    }
+    .next-layer {
+        height: 40px;
+        &::before {
+            height: 25px;
+        }
+    }
 }
