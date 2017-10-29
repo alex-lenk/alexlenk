@@ -30,13 +30,16 @@ header {
 
 .nav-area {
     margin-left: auto;
+    position: relative;
 }
 
 .menu {
     text-transform: uppercase;
     display: flex;
+    transition: all 0.3s ease;
     li {
         position: relative;
+        color: #9dacc2;
         &::before, &::after {
             width: 0;
             height: 1px;
@@ -57,7 +60,7 @@ header {
         &:not(:last-child) {
             margin-right: 50px;
         }
-        &:hover {
+        &:not(.menu-active):hover {
             &::before, &::after {
                 width: 100%;
                 opacity: 1;
@@ -67,6 +70,10 @@ header {
     a {
         color: #fff;
     }
+}
+
+.menu-toggle {
+    display: none;
 }
 
 .header-center {
@@ -84,9 +91,24 @@ header {
     justify-content: center;
 }
 
+.header-title-html {
+    &::before {
+        content: '<';
+    }
+    &::after {
+        content: '>';
+    }
+}
+
 .header-title-css {
     display: flex;
     align-items: center;
+    &::before {
+        content: '{';
+    }
+    &::after {
+        content: '}';
+    }
 }
 
 .header-title-center {

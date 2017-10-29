@@ -2,3 +2,119 @@
 @import 'lib/breakpoint-slicer';
 @import "common/variables";
 @import "common/mixin";
+
+@include from('m') {
+    .header-center {
+        padding-bottom: 200px;
+    }
+    
+    .header-title {
+        margin-bottom: 100px;
+    }
+    .header-title-html {
+        margin-right: 170px;
+    }
+    .header-title-css {
+        transform: translateX(-90px);
+    }
+    .header-title-css__text {
+        height: 63px;
+    }
+    .header-title-center {
+        margin-top: 40px;
+    }
+}
+
+@include from('s') {
+    .header-text {
+        font-size: 30px;
+    }
+}
+
+@include to('s') {
+    .header-title {
+        margin-bottom: 50px;
+        font-size: 50px;
+    }
+    .header-title-html {
+        width: 100%;
+    }
+    .header-title-css {
+        margin: 15px 0;
+    }
+}
+
+@include to('xs') {
+    header {
+        padding-top: 50px;
+        overflow-x: hidden;
+    }
+    .header-text {
+        font-size: 20px;
+    }
+    .next-layer {
+        height: 40px;
+        display: none;
+        &::before {
+            height: 25px;
+        }
+    }
+    
+    .menu {
+        white-space: nowrap;
+        position: absolute;
+        top: 100%;
+        right: -15px;
+        background-color: #222;
+        padding: 15px;
+        flex-direction: column;
+        transform: translateX(100%);
+        li:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+    .menu-toggle {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        padding: 0;
+        display: block;
+        position: relative;
+        border: 2px solid #fff;
+        border-radius: 0;
+        cursor: pointer;
+        box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        &::before {
+            width: 24px;
+            height: 3px;
+            margin-top: -2px;
+            margin-left: -12px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            content: '';
+            transition: all 0.3s ease;
+            background-color: #4666a2;
+            box-shadow: 0 7px 0 #4666a2, 0 -7px 0 #4666a2;
+        }
+        &:focus, &:hover {
+            background: #4666a2;
+            outline: none;
+            &::before {
+                background-color: #fff;
+                box-shadow: 0 7px 0 #fff, 0 -7px 0 #fff;
+            }
+        }
+    }
+    .nav-opened {
+        .menu {
+            transform: translateX(0);
+        }
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+}
+
