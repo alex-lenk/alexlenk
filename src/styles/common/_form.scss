@@ -4,7 +4,7 @@
     @include hidePlaceholder {
         opacity: 1;
         color: #888;
-        font-size: 16px;
+        font-size: 15px;
         transition: opacity 0.3s ease;
     }
     &:focus {
@@ -25,14 +25,14 @@
     padding: 0 20px;
     border: 1px solid #e5e5e5;
     display: block;
-    border-radius: 4px;
+    border-radius: 0;
     background-color: #fff;
     color: #333;
-    font-weight: 400;
     transition: all .3s ease;
-    @include font-size(16px);
+    @include font-size(15px);
     &:focus, &:active {
         border-color: #6ba0b2;
+        outline: none;
     }
 }
 

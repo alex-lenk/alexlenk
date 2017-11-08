@@ -4,6 +4,18 @@
 @import "common/mixin";
 
 @include from('m') {
+    body::before {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 10px solid #222;
+        position: fixed;
+        pointer-events: none;
+        z-index: 90;
+        content: '';
+    }
+    
     .header-center {
         padding-bottom: 200px;
     }
@@ -11,11 +23,13 @@
     .header-title {
         margin-bottom: 100px;
     }
-    .header-title-html {
-        margin-right: 170px;
-    }
-    .header-title-css {
-        transform: translateX(-90px);
+    .home {
+        .header-title-html {
+            margin-right: 170px;
+        }
+        .header-title-css {
+            transform: translateX(-90px);
+        }
     }
     .header-title-css__text {
         height: 63px;
@@ -26,6 +40,9 @@
 }
 
 @include from('s') {
+    .home header {
+        padding-top: 100px;
+    }
     .header-text {
         font-size: 30px;
     }
@@ -49,6 +66,9 @@
         padding-top: 50px;
         overflow-x: hidden;
     }
+    .home header::before {
+        top: 0;
+    }
     .header-text {
         font-size: 20px;
     }
@@ -65,7 +85,7 @@
         position: absolute;
         top: 100%;
         right: -15px;
-        background-color: #222;
+        background-color: rgba(#222, .8);
         padding: 15px;
         flex-direction: column;
         transform: translateX(100%);
@@ -115,6 +135,17 @@
     .logo {
         width: 100%;
         text-align: center;
+    }
+    
+    .footer-wrap {
+        flex-direction: column;
+    }
+    .copy {
+        margin-bottom: 30px;
+    }
+    .header-title {
+        margin-bottom: 50px;
+        font-size: 11vw;
     }
 }
 

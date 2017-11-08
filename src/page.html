@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+//= template/head.html
+<body class="page">
+//= template/header-page.html
+
+<div class="container">
+    <h1>Контактная информация</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form action="#" class="contact-form">
+                <div class="ui-group">
+                    <input type="text" name="contact_name" placeholder="Имя" class="ui-field hide-placeholder" required="">
+                </div>
+                <div class="ui-group">
+                    <input type="email" name="contact_email" placeholder="Email" class="ui-field hide-placeholder" required="">
+                </div>
+                <div class="ui-group">
+                    <input type="tel" name="contact_phone" placeholder="Телефон" class="ui-field hide-placeholder">
+                </div>
+                <div class="ui-group">
+                    <textarea name="message" class="ui-field hide-placeholder" placeholder="Сообщение" rows="6" cols="40"></textarea>
+                </div>
+
+                <div class="ui-group">
+                    <label class="label-checkbox">
+                        <input type="checkbox" class="checkbox-custom">
+                        <span class="checkbox-custom-view">Я даю свое согласие на обработку персональных данных</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-blue"><span>Отправить</span></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-wrap container">
+        <div class="copy">© 2017 AlexLenk.ru HTML CSS coder - опытный HTML верстальщик</div>
+        <div></div>
+    </div>
+</footer>
+
+//= template/scripts.html
+
+</body>
+</html>

@@ -7,17 +7,22 @@
     text-align: center;
     cursor: pointer;
     line-height: 1;
-    border-radius: 4px;
+    border-radius: 0;
     transition: all 0.3s ease;
     display: inline-flex;
     
-    &-green {
-        height: 40px;
-        padding: 15px 20px;
-        font-weight: 600;
+    &-blue {
+        height: 50px;
+        line-height: 50px;
+        padding: 0 30px;
+        font-size: 14px;
         text-transform: uppercase;
         color: $white;
-        background-color: $green;
+        background: #304574;
+        background: -moz-linear-gradient(left, #304574 0%, #4c6fae 100%);
+        background: -webkit-linear-gradient(left, #304574 0%,#4c6fae 100%);
+        background: linear-gradient(to right, #304574 0%,#4c6fae 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#304574', endColorstr='#4c6fae',GradientType=1 );
         position: relative;
         overflow: hidden;
         box-shadow: 0 0 15px rgba($mainColor, 0.35);
@@ -52,13 +57,13 @@
             transition: all 0.3s ease;
         }
         &:hover, &:active {
-            color: $green;
+            color: #4c6fae;
             &:before {
                 height: 100%;
                 opacity: 1;
             }
             .smartphone {
-                fill: $green;
+                fill: #4c6fae;
             }
         }
     }
