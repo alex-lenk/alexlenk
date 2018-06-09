@@ -67,41 +67,4 @@
             }
         }
     }
-    &-light {
-        padding: 10px 15px;
-        text-transform: uppercase;
-        border: 1px solid $green;
-        color: $mainColor;
-        position: relative;
-        box-shadow: 0 0 15px rgba($mainColor, 0.35);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @include font-size(14px);
-        &:after {
-            width: 0%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: $green;
-            content: '';
-            position: absolute;
-            z-index: -1;
-            transition: all 0.3s;
-        }
-        svg {
-            transition: all 0.3s ease;
-        }
-        &:hover, &:active {
-            color: $white;
-            
-            &:after {
-                width: 100%;
-            }
-            
-            svg {
-                fill: $white;
-            }
-        }
-    }
 }

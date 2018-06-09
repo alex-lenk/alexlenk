@@ -60,7 +60,7 @@ var config = {
 
 gulp.task('svgstore', function () {
     return gulp
-        .src('./sources/sprite/*.svg')
+        .src('./src/img/sprite/*.svg')
         .pipe(svgmin(function (file) {
             var prefix = path.basename(file.relative, path.extname(file.relative));
             return {
@@ -73,7 +73,7 @@ gulp.task('svgstore', function () {
             }
         }))
         .pipe(svgstore())
-        .pipe(gulp.dest('./build/img'));
+        .pipe(gulp.dest('./build/img/sprite'));
 });
 
 gulp.task('webserver', function () {
