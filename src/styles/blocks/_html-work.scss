@@ -22,6 +22,16 @@
   .section-title {
     margin-bottom: 40px;
   }
+
+  .work-title {
+    color: #9dacc2;
+    a {
+      color: inherit;
+      &::before {
+        color: #fff;
+      }
+    }
+  }
 }
 
 .work-list {
@@ -41,19 +51,16 @@
 
 .work-title {
   text-align: center;
-  color: #9dacc2;
   text-transform: uppercase;
   white-space: nowrap;
   cursor: default;
   a {
-    color: inherit;
     position: relative;
     &::before {
       width: 0;
       position: absolute;
       left: 0;
       top: 0;
-      color: #fff;
       overflow: hidden;
       display: inline-block;
       content: attr(data-word);
