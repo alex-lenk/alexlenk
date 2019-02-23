@@ -45,8 +45,14 @@
   padding-left: 15px;
   padding-right: 15px;
   margin-top: 30px;
+  @media (max-width:567px) {
+    width: 100%;
+    text-align: center;
+  }
+  @media (min-width:568px) {
   max-width: calc(100% / 3);
   flex-basis: calc(100% / 3);
+  }
 }
 
 .work-title {
