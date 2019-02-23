@@ -1,20 +1,15 @@
 @font-face {
-    font-family: 'Open Sans';
+    font-family: 'Circe';
+    src: url('../fonts/Circe-ExtraBold.woff') format('woff'),
+    url('../fonts/Circe-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
     font-style: normal;
-    font-weight: 600;
-    src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url('../fonts/OpenSans-Semibold.woff') format('woff'), url('../fonts/OpenSans-Semibold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Open Sans';
+    font-family: 'Circe';
+    src: url('../fonts/Circe-ExtraLight.woff') format('woff'),
+    url('../fonts/Circe-ExtraLight.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url('../fonts/OpenSans.woff') format('woff'), url('../fonts/OpenSans.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Open Sans Light'), local('OpenSans-Light'), url('../fonts/OpenSans-Light.woff') format('woff'), url('../fonts/OpenSans-Light.ttf') format('truetype');
 }
