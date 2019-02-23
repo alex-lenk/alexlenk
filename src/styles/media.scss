@@ -64,7 +64,6 @@
 @include to('xs') {
     header {
         padding-top: 50px;
-        overflow-x: hidden;
     }
     .home header::before {
         top: 0;
@@ -72,23 +71,16 @@
     .header-text {
         font-size: 20px;
     }
-    .next-layer {
-        height: 40px;
-        display: none;
-        &::before {
-            height: 25px;
-        }
-    }
     
     .menu {
         white-space: nowrap;
-        position: absolute;
-        top: 100%;
-        right: -15px;
-        background-color: rgba(#222, .8);
+        position: fixed;
+        top: 195px;
+        right: 0;
+        background-color: rgba(#333, .9);
         padding: 15px;
         flex-direction: column;
-        transform: translateX(100%);
+        transform: translateX(110%);
         li:not(:last-child) {
             margin-bottom: 15px;
         }
@@ -96,38 +88,30 @@
     .menu-toggle {
         width: 50px;
         height: 50px;
-        background: #fff;
+        background: transparent;
         padding: 0;
         display: block;
         position: relative;
-        border: 2px solid #fff;
+        border: 0;
         border-radius: 0;
         cursor: pointer;
-        box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
         &::before {
-            width: 24px;
+            width: 34px;
             height: 3px;
-            margin-top: -2px;
-            margin-left: -12px;
-            top: 50%;
-            left: 50%;
+            top: 23px;
+            right: 0;
             position: absolute;
             content: '';
-            transition: all 0.3s ease;
-            background-color: #4666a2;
-            box-shadow: 0 7px 0 #4666a2, 0 -7px 0 #4666a2;
+            transition: all .3s ease;
+            background-color: #fff;
+            box-shadow: 0 10px 0 #fff, 0 -10px 0 #fff;
         }
         &:focus, &:hover {
-            background: #4666a2;
             outline: none;
-            &::before {
-                background-color: #fff;
-                box-shadow: 0 7px 0 #fff, 0 -7px 0 #fff;
-            }
         }
     }
     .nav-opened {
+        overflow: hidden;
         .menu {
             transform: translateX(0);
         }
@@ -144,7 +128,7 @@
         margin-bottom: 30px;
     }
     .header-title {
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         font-size: 11vw;
     }
 }

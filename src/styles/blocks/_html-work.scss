@@ -57,8 +57,6 @@
 
 .work-title {
   text-align: center;
-  text-transform: uppercase;
-  white-space: nowrap;
   cursor: default;
   a {
     position: relative;
@@ -75,6 +73,10 @@
     &:hover::before {
       width: 100%;
     }
+  }
+  @media (min-width: 568px) {
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 }
 

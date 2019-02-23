@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     $(".menu-toggle").click(
         function () {
-            $('.nav-area').toggleClass('nav-opened');
+            $('body').toggleClass('nav-opened');
         }
     );
 
