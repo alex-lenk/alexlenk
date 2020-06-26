@@ -4,5 +4,6 @@ node_modules/
 sources/
 build
 .DS_Store
-alexlenk.iml
+*.iml
 my-app/
+public_html

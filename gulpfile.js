@@ -1,68 +1,58 @@
-'use strict';
-
-var gulp = require('gulp'),
-    watch = require('gulp-watch'),
-    prefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
+let gulp = require('gulp'),
     sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
+    browserSync = require('browser-sync'),
     rigger = require('gulp-rigger'),
-    cssmin = require('gulp-minify-css'),
-    imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
-    rimraf = require('rimraf'),
-    includer = require("gulp-x-includer"),
-    browserSync = require("browser-sync"),
-    reload = browserSync.reload,
-    svgstore = require('gulp-svgstore'),
+    uglify = require('gulp-uglify-es').default,
+    fileinclude = require('gulp-ex-file-include'),
+    cleancss = require('gulp-clean-css'),
+    rename = require('gulp-rename'),
+    autoprefixer = require('autoprefixer'),
+    postcss = require('gulp-postcss'),
+    notify = require('gulp-notify'),
+    basePath = require('path'),
     svgmin = require('gulp-svgmin'),
-    path = require('path'),
-    cheerio = require('gulp-cheerio');
+    svgstore = require('gulp-svgstore'),
+    imagemin = require('gulp-imagemin');
 
-var way = {
-    build: {
-        html: 'build/',
-        js: 'build/js/',
-        css: 'build/css/',
-        img: 'build/img/',
-        fonts: 'build/fonts/'
+
+const paths = {
+    html: {
+        src: './src/view/*.html',
+        build: './public_html',
+        watch: './src/view/**/*.html'
     },
-    src: {
-        html: 'src/*.html',
-        js: 'src/js/*.js',
-        styles: 'src/styles/**/*.scss',
-        img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+    styles: {
+        src: './src/styles/*.scss',
+        build: './public_html/css',
+        watch: './src/styles/**/*.scss'
     },
-    watch: {
-        html: 'src/*.html',
-        html_template: 'src/template/*.html',
-        js: 'src/js/*.js',
-        styles: 'src/styles/*.scss',
-        styles_blocks: 'src/styles/bocks/*.scss',
-        styles_common: 'src/styles/common/*.scss',
-        styles_lib: 'src/styles/lib/*.scss',
-        img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+    js: {
+        src: './src/js/scripts.js',
+        build: './public_html/js',
+        watch: './src/js/**/*.js'
     },
-    clean: './build'
+    img: {
+        src: './src/img/**/*.*',
+        build: './public_html/img',
+        watch: './src/img/**/*.*'
+    },
+    favicon: {
+        src: './src/favicon/**/*.*',
+        build: './public_html/favicon',
+        watch: './src/favicon/**/*.*'
+    },
+    fonts: {
+        src: './src/fonts/*.*',
+        build: './public_html/fonts',
+        watch: './src/fonts/*.*'
+    }
 };
 
-var config = {
-    server: {
-        baseDir: "./build"
-    },
-    tunnel: true,
-    host: 'localhost',
-    port: 9000,
-    logPrefix: "frontend"
-};
-
-gulp.task('svgstore', function () {
+gulp.task('svgIcons', function () {
     return gulp
         .src('./src/img/sprite/*.svg')
         .pipe(svgmin(function (file) {
-            var prefix = path.basename(file.relative, path.extname(file.relative));
+            let prefix = basePath.basename(file.relative, basePath.extname(file.relative));
             return {
                 plugins: [{
                     cleanupIDs: {
@@ -73,111 +63,103 @@ gulp.task('svgstore', function () {
             }
         }))
         .pipe(svgstore())
-        .pipe(gulp.dest('./build/img/sprite'));
+        .pipe(gulp.dest('./public_html/img/'));
 });
 
-gulp.task('webserver', function () {
-    browserSync(config);
+
+// Local Server
+gulp.task('browser-sync', function () {
+    browserSync({
+        server: {
+            baseDir: './public_html'
+        },
+        notify: false,
+        port: 7384
+    })
 });
 
-gulp.task('clean', function (cb) {
-    rimraf(way.clean, cb);
+
+// SCSS Styles
+gulp.task('styles', function () {
+    return gulp.src(paths.styles.src)
+        .pipe(sass({outputStyle: 'compressed'}).on("error", notify.onError()))
+        .pipe(rename({suffix: '.min', prefix: ''}))
+        .pipe(postcss([autoprefixer()]))
+        .pipe(cleancss({level: {1: {specialComments: 0}}})) // Opt., comment out when debugging
+        .pipe(gulp.dest(paths.styles.build))
+        .pipe(browserSync.stream())
 });
 
-gulp.task('html:build', function () {
-    gulp.src(way.src.html)
+
+// JS
+gulp.task('scripts', function () {
+    return gulp.src(paths.js.src)
         .pipe(rigger())
-        .pipe(gulp.dest(way.build.html))
-        .pipe(reload({
-            stream: true
-        }));
-});
-
-gulp.task('js:build', function () {
-    gulp.src(way.src.js)
-        .pipe(rigger())
+        .pipe(gulp.dest(paths.js.build))
         .pipe(uglify())
-        .pipe(gulp.dest(way.build.js))
-        .pipe(reload({
-            stream: true
-        }));
+        .pipe(rename({suffix: '.min', prefix: ''}))
+        .pipe(gulp.dest(paths.js.build))
+        .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('styles:build', function () {
-    gulp.src(way.src.styles)
-        .pipe(sass({
-            includePaths: ['src/styles/'],
-            outputStyle: 'compressed',
-            sourceMap: true,
-            errLogToConsole: true
-        }))
-        .pipe(prefixer())
-        .pipe(cssmin())
-        .pipe(gulp.dest(way.build.css))
-        .pipe(reload({
-            stream: true
-        }));
+
+// HTML Live Reload
+gulp.task('code', function () {
+    return gulp.src(paths.html.src)
+        .pipe(fileinclude())
+        .pipe(gulp.dest(paths.html.build))
+        .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('image:build', function () {
-    gulp.src(way.src.img)
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{
-                removeViewBox: false
-            }],
-            use: [pngquant()],
-            interlaced: true
-        }))
-        .pipe(gulp.dest(way.build.img))
-        .pipe(reload({
-            stream: true
-        }));
+
+// img task
+gulp.task('img', function () {
+    return gulp.src(paths.img.src)
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.mozjpeg({quality: 80, progressive: true}),
+            imagemin.optipng({optimizationLevel: 6}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
+        .pipe(gulp.dest(paths.img.build))
+        .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('fonts:build', function () {
-    gulp.src(way.src.fonts)
-        .pipe(gulp.dest(way.build.fonts))
+
+// favicon task
+gulp.task('favicon', function () {
+    return gulp.src(paths.favicon.src)
+        .pipe(gulp.dest(paths.favicon.build))
+        .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('build', [
-    'html:build',
-    'js:build',
-    'styles:build',
-    'fonts:build',
-    'image:build'
-]);
 
+// fonts task
+gulp.task('fonts', function () {
+    return gulp.src(paths.fonts.src)
+        .pipe(gulp.dest(paths.fonts.build))
+        .pipe(browserSync.reload({stream: true}))
+});
+
+
+gulp.task('img', gulp.parallel('img'));
+
+gulp.task('favicon', gulp.parallel('favicon'));
+
+gulp.task('fonts', gulp.parallel('fonts'));
 
 gulp.task('watch', function () {
-    watch([way.watch.html], function (event, cb) {
-        gulp.start('html:build');
-    });
-    watch([way.watch.html_template], function (event, cb) {
-        gulp.start('html:build');
-    });
-    watch([way.watch.styles], function (event, cb) {
-        gulp.start('styles:build');
-    });
-    watch([way.watch.styles_common], function (event, cb) {
-        gulp.start('styles:build');
-    });
-    watch([way.watch.styles_blocks], function (event, cb) {
-        gulp.start('styles:build');
-    });
-    watch([way.watch.styles_lib], function (event, cb) {
-        gulp.start('styles:build');
-    });
-    watch([way.watch.js], function (event, cb) {
-        gulp.start('js:build');
-    });
-    watch([way.watch.img], function (event, cb) {
-        gulp.start('image:build');
-    });
-    watch([way.watch.fonts], function (event, cb) {
-        gulp.start('fonts:build');
-    });
+    gulp.watch(paths.styles.watch, gulp.parallel('styles'));
+    gulp.watch(paths.js.watch, gulp.parallel('scripts'));
+    gulp.watch(paths.html.watch, gulp.parallel('code'));
+    gulp.watch(paths.img.watch, gulp.parallel('img'));
+    gulp.watch(paths.favicon.watch, gulp.parallel('favicon'));
+    gulp.watch(paths.fonts.watch, gulp.parallel('fonts'));
 });
 
-
-gulp.task('default', ['build', 'webserver', 'watch']);
+gulp.task('default', gulp.parallel('favicon', 'fonts', 'styles', 'scripts', 'code', 'browser-sync', 'watch'));
