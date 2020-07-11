@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ru">
-//= template/head.html
+@@include('partial/head.html')
 <body class="home">
-//= template/header.html
-//= template/html-work.html
+@@include('partial/header.html')
+@@include('partial/html-work.html')
 
 <div class="main-article">
     <article class="container">
@@ -62,9 +62,7 @@
     </article>
 </div>
 
-//= template/footer.html
-
-//= template/scripts.html
-
+@@include('partial/footer.html')
+@@include('partial/scripts.html')
 </body>
 </html>
