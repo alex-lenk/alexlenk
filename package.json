@@ -1,13 +1,11 @@
 {
-  "name": "AlexLenk",
-  "version": "2.0.0",
+  "name": "alexlenk",
+  "version": "3.0.0",
   "description": "For work alexlenk.ru",
-  "main": "gulpfile.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp --development",
+    "build": "gulp build --production"
   },
   "repository": {
     "type": "git",
@@ -18,25 +16,30 @@
   ],
   "author": "Alex Lenk",
   "license": "ISC",
-  "dependencies": {
-    "autoprefixer": "latest",
-    "browser-sync": "latest",
-    "gulp-ex-file-include": "latest",
-    "gulp-notify": "latest",
-    "gulp-postcss": "latest",
-    "gulp-rename": "latest",
-    "gulp-svgmin": "latest",
-    "path": "latest",
-    "svg-sprite": "latest"
-  },
   "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "browser-sync": "latest",
+    "del": "latest",
     "gulp": "latest",
-    "gulp-clean-css": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-rigger": "latest",
-    "gulp-sass": "latest",
-    "gulp-svgstore": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-babel": "latest",
+    "gulp-csso": "latest",
+    "gulp-dart-sass": "latest",
+    "gulp-mode": "latest",
+    "gulp-rename": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-terser": "latest",
+    "webpack-stream": "latest",
+    "gulp-ex-file-include": "latest",
     "gulp-uglify-es": "latest",
-    "node-sass": "latest"
+    "gulp-svgmin": "latest",
+    "gulp-svgstore": "latest",
+    "svg-sprite": "latest",
+    "path": "latest",
+    "gulp-imagemin": "latest"
+  },
+  "dependencies": {
+    "gulp-html-beautify": "^1.0.1"
   }
 }
