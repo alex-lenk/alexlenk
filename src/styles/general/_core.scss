@@ -1,16 +1,39 @@
-@import "variables";
-@import "mixin";
-
-html {
-    font-size: 16px;
+.container {
+  max-width: 1230px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.list-unstyled {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+@media (min-width: 769px) {
+  body::before {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 10px solid #222;
+    position: fixed;
+    pointer-events: none;
+    z-index: 90;
+    content: '';
+  }
+}
+
+/*
 html,
 body {
     height: 100%;
     background: $white;
     color: #222;
-    font-family: 'Circe', Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     font-weight: 300;
     line-height: 1.4;
     @include font-size(18px);
@@ -131,3 +154,4 @@ button, input, select, textarea {
         box-shadow: none;
     }
 }
+*/
