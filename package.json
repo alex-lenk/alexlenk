@@ -40,6 +40,6 @@
     "gulp-imagemin": "latest"
   },
   "dependencies": {
-    "gulp-html-beautify": "^1.0.1"
+    "gulp-html-beautify": "latest"
   }
 }
