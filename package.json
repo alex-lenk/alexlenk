@@ -37,9 +37,12 @@
     "gulp-svgstore": "latest",
     "svg-sprite": "latest",
     "path": "latest",
-    "gulp-imagemin": "latest"
+    "gulp-imagemin": "latest",
+    "gulp-concat": "latest"
   },
   "dependencies": {
-    "gulp-html-beautify": "latest"
+    "gulp-html-beautify": "latest",
+    "uglifyjs-webpack-plugin": "latest",
+    "babel-loader": "latest"
   }
 }

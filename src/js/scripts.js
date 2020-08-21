@@ -1,5 +1,5 @@
-//= lib/jquery-3.5.1.slim.min.js
-//= lib/svgxuse.min.js
+//import './init/fixednav.js';
+// = lib/svgxuse.min.js
 
 
 $(document).ready(function () {

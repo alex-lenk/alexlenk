@@ -12,21 +12,7 @@ const del = require('del');
 const mode = require('gulp-mode')();
 const htmlbeautify = require('gulp-html-beautify');
 const browserSync = require('browser-sync').create();
-
-// clean tasks
-/*
-const clean = () => {
-    return del(['public_html']);
-}
-
-const cleanImages = () => {
-    return del(['public_html/img']);
-}
-
-const cleanFonts = () => {
-    return del(['public_html/fonts']);
-}
-*/
+const concat = require('gulp-concat');
 
 // css task
 const css = () => {
@@ -43,26 +29,24 @@ const css = () => {
 
 // js task
 const js = () => {
-    return src('src/js/scripts.js')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
-        .pipe(webpack({
-            mode: 'development',
-            devtool: 'inline-source-map'
-        }))
-        .pipe(mode.development(sourcemaps.init({loadMaps: true})))
-        .pipe(rename('scripts.js'))
-        .pipe(mode.production(terser({output: {comments: false}})))
-        .pipe(mode.development(sourcemaps.write()))
-        .pipe(dest('public_html/js'))
+    return src('./src/js/scripts.js')
+        .pipe(webpack(require('./webpack.config')))
+        .pipe(dest('./public_html/js'))
         .pipe(mode.development(browserSync.stream()));
+}
+const jsVendors = () => {
+    return src([
+        './src/js/lib/jquery-3.5.1.slim.min.js',
+        './src/js/lib/svgxuse.min.js'
+    ])
+        .pipe(concat('libs.js'))
+        .pipe(dest('./public_html/js'));
 }
 
 // copy tasks
 const copyImages = () => {
-    return src('src/img/**/*.{jpg,jpeg,png,svg}')
-        .pipe(dest('public_html/img'));
+    return src('./src/img/**/*.{jpg,jpeg,png,svg}')
+        .pipe(dest('./public_html/img'));
 }
 
 const copyFonts = () => {
@@ -71,7 +55,7 @@ const copyFonts = () => {
 }
 
 const html = () => {
-    return src('src/view/*.html')
+    return src('src/view/**/*.html')
         .pipe(fileinclude())
         .pipe(mode.production(htmlbeautify()))
         .pipe(dest('public_html'))
@@ -102,5 +86,5 @@ const watchForChanges = () => {
 }
 
 // public tasks
-exports.default = series(parallel(css, js, copyImages, copyFonts, html, copyFavicon), watchForChanges);
-exports.build = series(parallel(css, js, copyImages, copyFonts, html, copyFavicon));
+exports.default = series(parallel(css, js, jsVendors, copyImages, copyFonts, html, copyFavicon), watchForChanges);
+exports.build = series(parallel(css, js, jsVendors, copyImages, copyFonts, html, copyFavicon));
