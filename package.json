@@ -38,7 +38,8 @@
     "svg-sprite": "latest",
     "path": "latest",
     "gulp-imagemin": "latest",
-    "gulp-concat": "latest"
+    "gulp-concat": "latest",
+    "vinyl-ftp": "latest"
   },
   "dependencies": {
     "gulp-html-beautify": "latest",

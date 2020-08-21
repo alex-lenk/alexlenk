@@ -13,6 +13,9 @@ const mode = require('gulp-mode')();
 const htmlbeautify = require('gulp-html-beautify');
 const browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
+const basePath = require('path');
+const svgmin = require('gulp-svgmin');
+const svgstore = require('gulp-svgstore');
 
 // css task
 const css = () => {
@@ -67,6 +70,23 @@ const copyFavicon = () => {
         .pipe(dest('public_html/favicon'));
 }
 
+const svgStore = () => {
+    return src('./src/img/sprite/*.svg')
+        .pipe(svgmin(function (file) {
+            let prefix = basePath.basename(file.relative, basePath.extname(file.relative));
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        prefix: prefix + '-',
+                        minify: true
+                    }
+                }]
+            }
+        }))
+        .pipe(svgstore())
+        .pipe(dest('./public_html/img'));
+}
+
 // watch task
 const watchForChanges = () => {
     browserSync.init({
@@ -88,3 +108,4 @@ const watchForChanges = () => {
 // public tasks
 exports.default = series(parallel(css, js, jsVendors, copyImages, copyFonts, html, copyFavicon), watchForChanges);
 exports.build = series(parallel(css, js, jsVendors, copyImages, copyFonts, html, copyFavicon));
+exports.sprite = series(svgStore);

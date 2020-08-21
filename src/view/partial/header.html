@@ -1,29 +1,32 @@
-<header>
-    <div class="container">
+<header class="main-header">
+    <div class="main-header__inner container">
         <div class="header-panel">
-            <div class="logo">
-                <img src="img/logo2.png" alt="AlexLenk.ru HTML/CSS coder">
+            <div class="header-logo">
+                <div class="header-logo__icon">
+                    <img src="img/logo.svg" alt="AlexLenk.ru HTML/CSS coder">
+                </div>
+                <div class="header-logo__name">Alex Lenk</div>
             </div>
 
-            <nav class="nav-area">
-                <button class="menu-toggle"></button>
+            <nav class="menu">
+                <button type="button" class="menu-toggle"><span class="sr-only">открыть меню</span></button>
 
-                <ul class="menu list-unstyled">
-                    <li><a href="#">Обо мне</a></li>
-                    <li><a href="#">Контакты</a></li>
+                <ul class="menu-list list-unstyled">
+                    <li class="menu-item"><a href="#" class="menu-link">Портфолио</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Обо мне</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Контакты</a></li>
                 </ul>
             </nav>
         </div>
 
-        <div class="header-center">
-            <h1 class="header-title">
-                <span class="header-title-html">HTML</span>
-                <span class="header-title-css"><span class="header-title-css__text">CSS</span></span>
-                <span class="header-title-center">coder</span>
-            </h1>
+        <h1 class="header-title">Frontend developer</h1>
 
-            <div class="header-text">Фронтенд разработчик</div>
+        <div class="header-text">
+            < HTML />
+            {CSS}
+            js()
+            coder
         </div>
     </div>
-    <a href="#our-work" class="next-layer" rel="nofollow"></a>
+    <a href="#our-work" class="main-header__next" rel="nofollow"><span class="sr-only">в низ</span></a>
 </header>
