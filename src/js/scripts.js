@@ -1,18 +1,12 @@
-//import './init/fixednav.js';
-// = lib/svgxuse.min.js
-
-
 $(document).ready(function () {
-    $(".menu-toggle").click(
-        function () {
-            $('body').toggleClass('nav-opened');
-        }
-    );
+    $('.menu-toggle').click(function () {
+        $('body').toggleClass('menu-opened');
+    });
 
     $(function () {
-        $("a[href^='#']").click(function () {
-            var _href = $(this).attr("href");
-            $("html, body").animate({scrollTop: $(_href).offset().top + "px"});
+        $('a[href^="#"]').click(function () {
+            var _href = $(this).attr('href');
+            $('html, body').animate({scrollTop: $(_href).offset().top + 'px'});
             return false;
         });
     });
