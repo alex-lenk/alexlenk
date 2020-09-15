@@ -1,44 +1,52 @@
 <!doctype html>
 <html lang="ru">
-//= template/head.html
-<body class="page">
-//= template/header-page.html
+@@include('partial/head.html', {
+"title": "AlexLenk.ru HTML/CSS coder - опытный верстальщик со стажем!",
+"description": ""
+})
+<body>
+@@include('partial/header-page.html')
 
-<div class="container">
-    <h1>Контактная информация</h1>
+<article class="main-article">
+    <div class="container">
+        <h1>Контактная информация</h1>
 
-    <div class="row">
-        <div class="col-md-6">
-            <form action="#" class="contact-form">
-                <div class="ui-group">
-                    <input type="text" name="contact_name" placeholder="Имя" class="ui-field hide-placeholder" required="">
-                </div>
-                <div class="ui-group">
-                    <input type="email" name="contact_email" placeholder="Email" class="ui-field hide-placeholder" required="">
-                </div>
-                <div class="ui-group">
-                    <input type="tel" name="contact_phone" placeholder="Телефон" class="ui-field hide-placeholder">
-                </div>
-                <div class="ui-group">
-                    <textarea name="message" class="ui-field hide-placeholder" placeholder="Сообщение" rows="6" cols="40"></textarea>
-                </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="#" method="post" class="ajax_form">
+                    <div class="ui-group">
+                        <input type="text" name="name" placeholder="Имя" class="ui-field hide-placeholder" required="">
+                    </div>
+                    <div class="ui-group">
+                        <input type="email" name="phone" placeholder="Email" class="ui-field hide-placeholder" required="">
+                    </div>
+                    <div class="ui-group">
+                        <input type="tel" name="contact_phone" placeholder="Телефон" class="ui-field hide-placeholder">
+                    </div>
+                    <div class="ui-group">
+                        <textarea name="message" class="ui-field hide-placeholder" placeholder="Сообщение" rows="6" cols="40"></textarea>
+                    </div>
 
-                <div class="ui-group">
-                    <label class="label-checkbox">
-                        <input type="checkbox" class="checkbox-custom">
-                        <span class="checkbox-custom-view">Я даю свое согласие на обработку персональных данных</span>
-                    </label>
-                </div>
+                    <div class="agreement ui-group">
+                        <label class="label-checkbox">
+                            <input type="hidden" name="check[]" value="">
+                            <input type="checkbox" name="check[]" id="check" class="checkbox-custom">
+                            <span class="checkbox-custom-view">Я даю свое согласие на обработку персональных данных</span>
+                        </label>
+                        <span class="error_check"></span>
+                    </div>
 
-                <button type="submit" class="btn btn-blue"><span>Отправить</span></button>
-            </form>
+                    <button type="submit" class="btn btn-blue"><span>Отправить</span></button>
+
+                    <input type="hidden" name="af_action" value="5be4295ef00fcaac4b36b1b19658b109">
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</article>
 
-//= template/footer.html
+@@include('partial/footer.html')
 
-//= template/scripts.html
-
+@@include('partial/scripts.html')
 </body>
 </html>

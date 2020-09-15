@@ -37,6 +37,7 @@ const js = () => {
         .pipe(dest('./public_html/js'))
         .pipe(mode.development(browserSync.stream()));
 }
+
 const jsVendors = () => {
     return src([
         './src/js/lib/jquery-3.5.1.slim.min.js',
@@ -57,17 +58,17 @@ const copyFonts = () => {
         .pipe(dest('public_html/fonts'));
 }
 
+const copyFavicon = () => {
+    return src('src/favicon/*.*')
+        .pipe(dest('public_html/favicon'));
+}
+
 const html = () => {
-    return src('src/view/**/*.html')
+    return src('src/view/*.html')
         .pipe(fileinclude())
         .pipe(mode.production(htmlbeautify()))
         .pipe(dest('public_html'))
         .pipe(mode.development(browserSync.stream()));
-}
-
-const copyFavicon = () => {
-    return src('src/favicon/*.*')
-        .pipe(dest('public_html/favicon'));
 }
 
 const svgStore = () => {

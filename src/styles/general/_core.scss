@@ -24,6 +24,14 @@
   border: 0;
 }
 
+@media (min-width: 992px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
 @media (min-width: 769px) {
   body::before {
     width: 100%;

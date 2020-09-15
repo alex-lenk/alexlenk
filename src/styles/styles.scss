@@ -2,8 +2,12 @@
 @import "general/variables";
 @import "general/mixin";
 @import "general/core";
+@import "general/form";
+@import "general/checkbox-radio";
+@import "general/btn";
 @import "general/animations";
 @import "blocks/header";
+@import "blocks/footer";
 @import "blocks/work";
 
 .section-layer {
@@ -23,6 +27,16 @@
   }
   @media (min-width: 567px) {
     font-size: 48px;
+  }
+}
+
+.section-layer__title-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color .3s;
+
+  &:hover {
+    color: #fff;
   }
 }
 
@@ -56,40 +70,34 @@
   transition: fill .3s;
 }
 
-/*
-//@import "common/fonts";
-@import "lib/bootstrap";
-@import "lib/bootstrap/bootstrap-grid";
-@import "common/form";
-@import "common/btn";
-@import "common/common";
-@import "common/animations";
-@import "common/checkbox-radio";
-@import "blocks/header";
-@import "blocks/html-work";
+.main-article {
+  padding-top: 60px;
+  padding-bottom: 50px;
+  background-color: #f2f2f2;
+  color: #4f4949;
+  flex: 1;
+}
 
+
+
+/*
 
 .page-content {
   margin-bottom: 70px;
   flex: 1;
 }
 
+//@import "common/fonts";
+@import "lib/bootstrap";
+@import "lib/bootstrap/bootstrap-grid";
 
-footer {
-  padding: 50px 0;
-  background-color: #222222;
-  color: #fff;
-}
+@import "common/common";
+@import "common/animations";
+@import "blocks/header";
+@import "blocks/html-work";
 
-.footer-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.copy {
-  @include font-size(16px);
-}
+
 
 .main-article {
   padding-top: 50px;

@@ -1,70 +1,73 @@
-@import "variables";
-@import "mixin";
-
 .btn {
-    border: 0;
-    background-color: transparent;
-    text-align: center;
-    cursor: pointer;
-    line-height: 1;
-    border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  display: inline-flex;
+}
+
+.btn-blue {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: $white;
+  background: #304574;
+  background: -moz-linear-gradient(left, #304574 0%, #4c6fae 100%);
+  background: -webkit-linear-gradient(left, #304574 0%, #4c6fae 100%);
+  background: linear-gradient(to right, #304574 0%, #4c6fae 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#304574', endColorstr='#4c6fae', GradientType=1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba($mainColor, 0.35);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+
+  &::before {
+    width: 101%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background-color: $white;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%);
+    content: '';
+    position: absolute;
+    transition: all 0.3s;
+  }
+
+  span {
+    margin: auto 0;
+    position: relative;
+    z-index: 3;
+  }
+
+  .smartphone {
+    width: 23px;
+    height: 23px;
+    margin-right: 10px;
+    fill: $white;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
     transition: all 0.3s ease;
-    display: inline-flex;
-    
-    &-blue {
-        height: 50px;
-        line-height: 50px;
-        padding: 0 30px;
-        font-size: 14px;
-        text-transform: uppercase;
-        color: $white;
-        background: #304574;
-        background: -moz-linear-gradient(left, #304574 0%, #4c6fae 100%);
-        background: -webkit-linear-gradient(left, #304574 0%,#4c6fae 100%);
-        background: linear-gradient(to right, #304574 0%,#4c6fae 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#304574', endColorstr='#4c6fae',GradientType=1 );
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 0 15px rgba($mainColor, 0.35);
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
-        &::before {
-            width: 101%;
-            height: 0;
-            top: 50%;
-            left: 50%;
-            background-color: $white;
-            opacity: 0;
-            transform: translateX(-50%) translateY(-50%);
-            content: '';
-            position: absolute;
-            transition: all 0.3s;
-        }
-        span {
-            margin: auto 0;
-            position: relative;
-            z-index: 3;
-        }
-        .smartphone {
-            width: 23px;
-            height: 23px;
-            margin-right: 10px;
-            fill: $white;
-            overflow: hidden;
-            position: relative;
-            z-index: 3;
-            transition: all 0.3s ease;
-        }
-        &:hover, &:active {
-            color: #4c6fae;
-            &:before {
-                height: 100%;
-                opacity: 1;
-            }
-            .smartphone {
-                fill: #4c6fae;
-            }
-        }
+  }
+
+  &:hover, &:active {
+    color: #4c6fae;
+
+    &:before {
+      height: 100%;
+      opacity: 1;
     }
+
+    .smartphone {
+      fill: #4c6fae;
+    }
+  }
 }
