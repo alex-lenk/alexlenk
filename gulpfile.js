@@ -16,16 +16,15 @@ const concat = require('gulp-concat');
 const basePath = require('path');
 const svgmin = require('gulp-svgmin');
 const svgstore = require('gulp-svgstore');
+const uglify = require('gulp-uglify-es').default;
 
 // css task
 const css = () => {
     return src('src/styles/styles.scss')
-        .pipe(mode.development(sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(rename('styles.css'))
-        .pipe(mode.production(csso()))
-        .pipe(mode.development(sourcemaps.write()))
+        .pipe(csso())
         .pipe(dest('public_html/css'))
         .pipe(mode.development(browserSync.stream()));
 }
@@ -33,7 +32,7 @@ const css = () => {
 // js task
 const js = () => {
     return src('./src/js/scripts.js')
-        .pipe(webpack(require('./webpack.config')))
+        .pipe(uglify())
         .pipe(dest('./public_html/js'))
         .pipe(mode.development(browserSync.stream()));
 }

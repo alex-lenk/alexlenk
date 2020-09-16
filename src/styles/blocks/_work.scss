@@ -310,6 +310,36 @@
   }
 }
 
+.work-all {
+  padding: 70px 0 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.work-all-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color .3s;
+
+  &:hover {
+    color: #ff4d02;
+
+    .work-all-icon {
+      fill: #ff4d02;
+    }
+  }
+}
+
+.work-all-icon {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+  display: inline-block;
+  vertical-align: bottom;
+  transition: fill .3s;
+}
+
 @media (max-width: 567px) {
   .work-item {
     width: 100%;
