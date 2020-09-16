@@ -65,6 +65,10 @@
 .header-logo {
   color: #fff;
   text-align: center;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .header-logo__icon {
@@ -74,9 +78,6 @@
 
 .header-logo__name {
   font-size: 30px;
-}
-
-.header-logo__headline {
 }
 
 .header-title {
