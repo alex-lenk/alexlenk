@@ -12,14 +12,31 @@
 @import "blocks/section-layer";
 
 .contacts {
-  margin-left: -15px;
-  margin-right: -15px;
   display: flex;
 }
 
-.contacts-column {
-  padding-left: 15px;
-  padding-right: 15px;
-  max-width: 50%;
-  flex-basis: 50%;
+@media (min-width: 768px) {
+  .contacts {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .contacts-column {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contacts {
+    flex-direction: column;
+  }
+  .contacts-column {
+    margin-bottom: 45px;
+  }
+  .contacts-form {
+    order: 1;
+  }
 }

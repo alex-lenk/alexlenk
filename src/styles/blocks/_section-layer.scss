@@ -5,15 +5,16 @@
 }
 
 .section-layer__title {
-  margin-bottom: 40px;
   color: #9dacc2;
   text-transform: uppercase;
   text-align: center;
 
-  @media (max-width: 568px) {
-    font-size: 40px;
+  @media (max-width: 576px) {
+    margin-bottom: 30px;
+    font-size: 30px;
   }
-  @media (min-width: 567px) {
+  @media (min-width: 575px) {
+    margin-bottom: 40px;
     font-size: 48px;
   }
 }

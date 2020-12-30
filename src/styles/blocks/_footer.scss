@@ -4,8 +4,16 @@
   color: #fff;
 }
 
-.footer-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media (min-width: 768px) {
+  .footer-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-copy {
+    margin-bottom: 15px;
+  }
 }

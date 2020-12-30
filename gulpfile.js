@@ -39,7 +39,6 @@ const js = () => {
 
 const jsVendors = () => {
     return src([
-        './src/js/lib/jquery-3.5.1.slim.min.js',
         './src/js/lib/svgxuse.min.js'
     ])
         .pipe(concat('libs.js'))
