@@ -1,0 +1,78 @@
+.resume {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  color: #767c91;
+  background-color: #0f121b;
+}
+
+.resume-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resume-name {
+  width: 100%;
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.resume-percent {
+  color: #4b4e5a;
+  align-items: center;
+  line-height: 1;
+}
+
+.resume-process {
+  height: 7px;
+  background-color: #2e3343;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-grow: 1;
+  align-self: center;
+}
+
+.resume-process__count {
+  height: 7px;
+  background-color: #487efb;
+  display: block;
+}
+
+@media (min-width: 576px) {
+  .resume-list {
+    margin-left: -15px;
+    margin-right: -15px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .resume-item {
+    width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .resume-percent {
+    width: 15%;
+  }
+}
+
+@media (max-width: 767px) {
+  .resume-percent {
+    width: 20%;
+  }
+}
+
+@media (max-width: 575px) {
+  .resume-item {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+}

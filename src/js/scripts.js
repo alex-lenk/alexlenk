@@ -15,6 +15,23 @@ if (anchors.length) {
     }
 }
 
+
+let myData = "1986-10-04";
+
+function declOfNum(number, titles) {
+    let cases = [2, 0, 1, 1, 1, 2];
+    return number + " " + titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+}
+
+function birthDateToAge(b) {
+    let n = new Date();
+    b = new Date(b);
+    let age = n.getFullYear() - b.getFullYear();
+    return n.setFullYear(1970) < b.setFullYear(1970) ? age - 1 : age;
+}
+
+let myAge = declOfNum(birthDateToAge(myData), ['год', 'года', 'лет']);
+
 window.onload = function () {
     document.querySelector(".menu-toggle").onclick = function () {
         document.querySelector("body").classList.toggle("menu-opened");
@@ -25,4 +42,6 @@ window.onload = function () {
             document.querySelector("body").classList.toggle("menu-opened");
         }
     }
+
+    document.querySelector('.js__my-age').innerHTML = myAge;
 }
