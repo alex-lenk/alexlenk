@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /404.html
+Disallow: /?
 
 Host: alexlenk.ru
+Sitemap: https://alexlenk.ru/sitemap.xml

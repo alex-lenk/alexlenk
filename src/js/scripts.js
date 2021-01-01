@@ -39,7 +39,7 @@ window.onload = function () {
         document.querySelector("body").classList.toggle("menu-opened");
     }
 
-    if (anchors.length) {
+    if (anchors.length && window.screen.width < 576) {
         document.querySelector(".menu-link.go").onclick = function () {
             document.querySelector("body").classList.toggle("menu-opened");
         }
@@ -48,4 +48,7 @@ window.onload = function () {
     if (js__myAge) {
         js__myAge.innerHTML = myAge;
     }
+
+
+  console.log();
 }
