@@ -5,27 +5,9 @@
 }
 
 .section-layer__title {
-  margin-bottom: 40px;
   color: #9dacc2;
   text-transform: uppercase;
   text-align: center;
-
-  @media (max-width: 568px) {
-    font-size: 40px;
-  }
-  @media (min-width: 567px) {
-    font-size: 48px;
-  }
-}
-
-.section-layer__title-link {
-  text-decoration: none;
-  color: inherit;
-  transition: color .3s;
-
-  &:hover {
-    color: #fff;
-  }
 }
 
 .section-layer__content {
@@ -34,4 +16,26 @@
   background-color: #f2f2f2;
   color: #4f4949;
   flex: 1;
+}
+
+@media (min-width: 576px) {
+  .section-layer {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .section-layer__title {
+    margin-bottom: 40px;
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-layer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .section-layer__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
 }

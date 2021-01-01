@@ -7,11 +7,95 @@
 <body>
 @@include('partial/header-page.html')
 
-<article class="section-layer__content">
-    <div class="container">
-        <h1>Портфолио</h1>
+<article class="work section-layer">
+    <div class="work-inner container">
+        <h1 class="section-layer__title">Портфолио</h1>
 
         <ul class="work-list list-unstyled">
+            <!-- Begin work-item -->
+            <li class="work-item">
+                <div class="work-item__inner">
+                    <img src="/img/work/wineexpress.jpg" alt="">
+
+                    <div class="work-control">
+                        <a href="https://wineexpress.ru/" class="work-control__item work-control__link" rel="nofollow" target="_blank">
+                            <svg class="work-control__icon www">
+                                <use xlink:href="img/sprite.svg#www"></use>
+                            </svg>
+                            Посетить сайт
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-item__title">
+                    <a href="https://wineexpress.ru/" class="work-item__title-link" rel="nofollow" data-word="WineExpress" target="_blank">WineExpress</a>
+                </div>
+            </li>
+            <!-- END work-item -->
+
+            <!-- Begin work-item -->
+            <li class="work-item">
+                <div class="work-item__inner">
+                    <img src="/img/work/mi-shop.jpg" alt="">
+
+                    <div class="work-control">
+                        <a href="https://mi-shop.com/ru/" class="work-control__item work-control__link" rel="nofollow" target="_blank">
+                            <svg class="work-control__icon www">
+                                <use xlink:href="img/sprite.svg#www"></use>
+                            </svg>
+                            Посетить сайт
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-item__title">
+                    <a href="https://mi-shop.com/ru/" class="work-item__title-link" rel="nofollow" data-word="Смарт Оранж" target="_blank">Смарт Оранж</a>
+                </div>
+            </li>
+            <!-- END work-item -->
+
+            <!-- Begin work-item -->
+            <li class="work-item">
+                <div class="work-item__inner">
+                    <img src="/img/work/hitbuy.jpg" alt="">
+
+                    <div class="work-control">
+                        <a href="https://hitbuy.com/" class="work-control__item work-control__link" rel="nofollow" target="_blank">
+                            <svg class="work-control__icon www">
+                                <use xlink:href="img/sprite.svg#www"></use>
+                            </svg>
+                            Посетить сайт
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-item__title">
+                    <a href="https://hitbuy.com/" class="work-item__title-link" rel="nofollow" data-word="HITBUY" target="_blank">HITBUY</a>
+                </div>
+            </li>
+            <!-- END work-item -->
+
+            <!-- Begin work-item -->
+            <li class="work-item">
+                <div class="work-item__inner">
+                    <img src="/img/work/stroimegabaza.jpg" alt="">
+
+                    <div class="work-control">
+                        <a href="https://stroimegabaza.ru/" class="work-control__item work-control__link" rel="nofollow" target="_blank">
+                            <svg class="work-control__icon www">
+                                <use xlink:href="img/sprite.svg#www"></use>
+                            </svg>
+                            Посетить сайт
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-item__title">
+                    <a href="https://stroimegabaza.ru/" class="work-item__title-link" rel="nofollow" data-word="Стройбаза №1" target="_blank">Стройбаза №1</a>
+                </div>
+            </li>
+            <!-- END work-item -->
+
             <!-- Begin work-item -->
             <li class="work-item">
                 <div class="work-item__inner">
@@ -31,31 +115,6 @@
                             Посетить сайт
                         </a>
                     </div>
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <svg class="icon-jquery">
-                                <use xlink:href="img/sprite.svg#jquery"></use>
-                            </svg>
-                            <span class="work-panel__hint">jQuery</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <span class="icon-js">JS</span>
-                            <span class="work-panel__hint">JavaScript</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
@@ -83,25 +142,6 @@
                             Посетить сайт
                         </a>
                     </div>
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <span class="icon-js">JS</span>
-                            <span class="work-panel__hint">JavaScript</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
@@ -123,31 +163,6 @@
                             Исходный код
                         </a>
                     </div>
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <svg class="icon-jquery">
-                                <use xlink:href="img/sprite.svg#jquery"></use>
-                            </svg>
-                            <span class="work-panel__hint">jQuery</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <span class="icon-js">JS</span>
-                            <span class="work-panel__hint">JavaScript</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
@@ -160,31 +175,6 @@
             <li class="work-item">
                 <div class="work-item__inner">
                     <img src="img/old_work/ozg6lh-localagent_368x278_821.jpg" alt="">
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <svg class="icon-jquery">
-                                <use xlink:href="img/sprite.svg#jquery"></use>
-                            </svg>
-                            <span class="work-panel__hint">jQuery</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <span class="icon-js">JS</span>
-                            <span class="work-panel__hint">JavaScript</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
@@ -212,31 +202,6 @@
                             Посетить сайт
                         </a>
                     </div>
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <span class="icon-bs"></span>
-                            <span class="work-panel__hint">bootstrap 3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-jquery">
-                                <use xlink:href="img/sprite.svg#jquery"></use>
-                            </svg>
-                            <span class="work-panel__hint">jQuery</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
@@ -264,31 +229,6 @@
                             Посетить сайт
                         </a>
                     </div>
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <span class="icon-bs"></span>
-                            <span class="work-panel__hint">bootstrap 3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-jquery">
-                                <use xlink:href="img/sprite.svg#jquery"></use>
-                            </svg>
-                            <span class="work-panel__hint">jQuery</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
@@ -310,31 +250,6 @@
                             Посетить сайт
                         </a>
                     </div>
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <span class="icon-bs"></span>
-                            <span class="work-panel__hint">bootstrap 3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-jquery">
-                                <use xlink:href="img/sprite.svg#jquery"></use>
-                            </svg>
-                            <span class="work-panel__hint">jQuery</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
@@ -356,31 +271,6 @@
                             Посетить сайт
                         </a>
                     </div>
-
-                    <ul class="work-panel list-unstyled">
-                        <li class="work-panel__item">
-                            <span class="icon-bs"></span>
-                            <span class="work-panel__hint">bootstrap 3</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-jquery">
-                                <use xlink:href="img/sprite.svg#jquery"></use>
-                            </svg>
-                            <span class="work-panel__hint">jQuery</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-html5">
-                                <use xlink:href="img/sprite.svg#html"></use>
-                            </svg>
-                            <span class="work-panel__hint">HTML5</span>
-                        </li>
-                        <li class="work-panel__item">
-                            <svg class="icon-css3">
-                                <use xlink:href="img/sprite.svg#css"></use>
-                            </svg>
-                            <span class="work-panel__hint">CSS3</span>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="work-item__title">
