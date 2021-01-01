@@ -22,15 +22,11 @@
 }
 
 .work-list {
-  margin-left: -16px;
-  margin-right: -16px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .work-item {
-  padding-left: 16px;
-  padding-right: 16px;
   position: relative;
   text-align: center;
 }
@@ -38,7 +34,6 @@
 .work-item__title {
   text-align: center;
   cursor: default;
-  line-height: 1;
   color: #9dacc2;
   text-transform: uppercase;
 }
@@ -47,7 +42,6 @@
   color: inherit;
   position: relative;
   text-decoration: none;
-  line-height: 1;
 
   &:hover {
     color: #fff;
@@ -96,12 +90,21 @@
 }
 
 @media (min-width: 576px) {
+  .work-list {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
   .work-item {
+    padding-left: 16px;
+    padding-right: 16px;
     margin-top: 30px;
   }
   .work-all {
     padding: 70px 0 15px;
     font-size: 20px;
+  }
+  .work-item__title {
+    line-height: 1;
   }
 }
 
@@ -286,10 +289,15 @@
 }
 
 @media (max-width: 575px) {
+  .work-list {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
   .work-item {
     width: 100%;
-    text-align: center;
-    margin-bottom: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 32px;
   }
   .work-all {
     font-size: 14px;
@@ -300,5 +308,9 @@
   }
   .work-all-icon {
     margin-right: 8px;
+  }
+  .work-item__title {
+    font-size: 14px;
+    word-break: break-all;
   }
 }

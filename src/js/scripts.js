@@ -32,6 +32,8 @@ function birthDateToAge(b) {
 
 let myAge = declOfNum(birthDateToAge(myData), ['год', 'года', 'лет']);
 
+const js__myAge = document.querySelector('.js__my-age');
+
 window.onload = function () {
     document.querySelector(".menu-toggle").onclick = function () {
         document.querySelector("body").classList.toggle("menu-opened");
@@ -43,5 +45,7 @@ window.onload = function () {
         }
     }
 
-    document.querySelector('.js__my-age').innerHTML = myAge;
+    if (js__myAge) {
+        js__myAge.innerHTML = myAge;
+    }
 }
