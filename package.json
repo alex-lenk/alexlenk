@@ -38,6 +38,12 @@
     "svg-sprite": "latest",
     "path": "latest",
     "gulp-imagemin": "latest",
+    "imagemin-jpeg-recompress": "latest",
+    "imagemin-mozjpeg": "latest",
+    "imagemin-pngquant": "latest",
+    "imagemin-webp": "latest",
+    "imagemin-zopfli": "latest",
+    "gulp-webp": "latest",
     "gulp-concat": "latest",
     "vinyl-ftp": "latest"
   },

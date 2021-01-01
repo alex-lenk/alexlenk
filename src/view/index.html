@@ -1,12 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
+<head>
 @@include('partial/head.html', {
 "title": "Опытный фронтенд разработчик - HTML CSS JavaScript кодер",
 "description": "HTML CSS JavaScript coder - опытный фронтенд разработчик. Со свежим взглядом и креативным подходом к делу."
 })
+</head>
 <body>
 @@include('partial/header.html')
-
 
 <section class="resume section-layer">
   <div class="work-inner container">
@@ -80,11 +81,9 @@
   </div>
 </section>
 
-
 @@include('partial/work.html')
 
-
-<section class="experience section-layer">
+<section class="experience section-layer" id="experience">
   <div class="work-inner container">
     <h2 class="section-layer__title">Опыт работы</h2>
 
@@ -269,7 +268,6 @@
   </div>
 </section>
 
-
 <div class="section-layer__content section-layer" id="who">
   <article class="container">
     <p class="text-bold">Быстрый рассказ обо мне и краткая история моей жизни.</p>
@@ -390,7 +388,6 @@
     </p>
   </article>
 </div>
-
 
 @@include('partial/footer.html')
 
