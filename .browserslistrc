@@ -1,0 +1,8 @@
+chrome >= 60
+ff >= 60
+edge >= 12
+explorer >= 11
+ios >= 10
+safari >= 10
+android >= 7.0
+opera >= 40

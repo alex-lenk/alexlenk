@@ -1,0 +1,170 @@
+.main-header {
+  height: 100vh;
+  min-height: 650px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+
+  &::before {
+    width: 100%;
+    height: 29px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: url(../img/decor/ruler.png) repeat-x top left;
+    content: '';
+  }
+}
+
+.main-header__inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header__next {
+  height: 70px;
+  margin-left: -10px;
+  padding: 12px;
+  bottom: 30px;
+  left: 50%;
+  position: absolute;
+
+  &::before {
+    width: 1px;
+    height: 50px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background-color: #4c6fae;
+    z-index: 5;
+    box-shadow: inset 0 0 0 #fff;
+    animation: spin 1.5s 1000 linear;
+  }
+
+  &::after {
+    width: 12px;
+    height: 12px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -6px;
+    transform: rotate(-45deg);
+    content: '';
+  }
+}
+
+.header-panel {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  color: #fff;
+  text-align: center;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.header-logo__icon {
+  width: 220px;
+  height: 158px;
+}
+
+.header-logo__name {
+  font-size: 30px;
+}
+
+.header-title {
+  margin-top: auto;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.header-title-center {
+  margin-top: 40px;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.header-text {
+  padding-bottom: 50px;
+  margin-bottom: auto;
+  text-align: center;
+  color: #fff;
+  text-shadow: -2px -2px 7px rgba(17, 23, 53, 0.3);
+}
+
+.header-page {
+  padding-top: 70px;
+  padding-bottom: 50px;
+  box-shadow: 0 1px 10px #3bb5c4;
+  background: #24156b;
+  background: linear-gradient(to bottom, #3bb5c4 0, #24156b 100%);
+  flex: none;
+
+  &::before {
+    width: 100%;
+    height: 29px;
+    left: 0;
+    position: absolute;
+    background: url(../img/decor/ruler.png) top left repeat-x;
+    content: '';
+  }
+}
+
+.header-page__inner {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .header-page::before {
+    top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-page::before {
+    top: 0;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .main-header {
+    background: url(../img/bg/bg-header.svg) no-repeat center #4c6fae;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 769px) {
+  .header-title {
+    margin-bottom: 50px;
+    font-size: 72px;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    margin-bottom: 30px;
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 575px) {
+  .main-header {
+    padding-bottom: 50px;
+    background: rgb(53, 142, 175);
+    background: linear-gradient(135deg, rgba(53, 142, 175, 1) 0%, rgba(38, 28, 111, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#358eaf', endColorstr='#261c6f', GradientType=1);
+  }
+}
