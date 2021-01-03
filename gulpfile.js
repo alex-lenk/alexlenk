@@ -2,13 +2,8 @@ const {src, dest, watch, series, parallel} = require('gulp');
 const sass = require('gulp-dart-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const csso = require('gulp-csso');
-const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const fileinclude = require('gulp-ex-file-include');
-const terser = require('gulp-terser');
-const webpack = require('webpack-stream');
-const sourcemaps = require('gulp-sourcemaps');
-const del = require('del');
 const mode = require('gulp-mode')();
 const htmlbeautify = require('gulp-html-beautify');
 const browserSync = require('browser-sync').create();
@@ -26,7 +21,7 @@ const imageminWebp = require("imagemin-webp");
 
 // css task
 const css = () => {
-  return src('src/styles/styles.scss')
+  return src('./app/styles/styles.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(rename('styles.css'))
@@ -37,7 +32,7 @@ const css = () => {
 
 // js task
 const js = () => {
-  return src('./src/js/scripts.js')
+  return src('./app/js/scripts.js')
     .pipe(uglify())
     .pipe(dest('./public_html/js'))
     .pipe(mode.development(browserSync.stream()));
@@ -45,7 +40,7 @@ const js = () => {
 
 const jsVendors = () => {
   return src([
-    './src/js/lib/svgxuse.min.js'
+    './app/js/lib/svgxuse.min.js'
   ])
     .pipe(concat('libs.js'))
     .pipe(dest('./public_html/js'));
@@ -53,7 +48,7 @@ const jsVendors = () => {
 
 // copy tasks
 const copyImages = () => {
-  return src('./src/img/**/*.{jpg,jpeg,png,svg}')
+  return src('./app/img/**/*.{jpg,jpeg,png,svg}')
     .pipe(imagemin([
       imageminPngquant({
         speed: 5,
@@ -84,7 +79,7 @@ const copyImages = () => {
 
 
 const webpTask = () => {
-  return src('./src/img/**/*.{jpg,jpeg,png}')
+  return src('./app/img/**/*.{jpg,jpeg,png}')
     .pipe(webp(imageminWebp({
       lossless: true,
       quality: 6,
@@ -94,17 +89,17 @@ const webpTask = () => {
 }
 
 const copyFonts = () => {
-  return src('src/fonts/**/*.{woff,woff2}')
+  return src('./app/fonts/**/*.{woff,woff2}')
     .pipe(dest('public_html/fonts'));
 }
 
 const copyFavicon = () => {
-  return src('src/favicon/*.*')
+  return src('./app/favicon/*.*')
     .pipe(dest('public_html/favicon'));
 }
 
 const html = () => {
-  return src('src/view/*.html')
+  return src('./app/view/*.html')
     .pipe(fileinclude())
     .pipe(mode.production(htmlbeautify()))
     .pipe(dest('public_html'))
@@ -112,7 +107,7 @@ const html = () => {
 }
 
 const svgStore = () => {
-  return src('./src/img/sprite/*.svg')
+  return src('./app/img/sprite/*.svg')
     .pipe(svgmin(function (file) {
       let prefix = basePath.basename(file.relative, basePath.extname(file.relative));
       return {
@@ -138,12 +133,12 @@ const watchForChanges = () => {
     port: 7384
   });
 
-  watch('src/styles/**/*.scss', css);
-  watch('src/js/**/*.js', js);
-  watch('src/view/*.html', html);
-  watch('src/img/**/*.{png,jpg,jpeg,svg}', series(copyImages));
-  watch('src/fonts/**/*.{woff,woff2}', series(copyFonts));
-  watch('src/favicon/*.*', series(copyFavicon));
+  watch('./app/styles/**/*.scss', css);
+  watch('./app/js/**/*.js', js);
+  watch('./app/view/*.html', html);
+  watch('./app/img/**/*.{png,jpg,jpeg,svg}', series(copyImages));
+  watch('./app/fonts/**/*.{woff,woff2}', series(copyFonts));
+  watch('./app/favicon/*.*', series(copyFavicon));
 }
 
 // public tasks
