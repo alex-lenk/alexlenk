@@ -38,14 +38,6 @@ const js = () => {
     .pipe(mode.development(browserSync.stream()));
 }
 
-const jsVendors = () => {
-  return src([
-    './app/js/lib/svgxuse.min.js'
-  ])
-    .pipe(concat('libs.js'))
-    .pipe(dest('./public_html/js'));
-}
-
 // copy tasks
 const copyImages = () => {
   return src('./app/img/**/*.{jpg,jpeg,png,svg}')

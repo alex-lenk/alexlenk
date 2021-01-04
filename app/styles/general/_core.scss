@@ -58,3 +58,9 @@
     min-height: 100vh;
   }
 }
+
+@media (max-width: 575px) {
+  html, body {
+    height: 100%
+  }
+}

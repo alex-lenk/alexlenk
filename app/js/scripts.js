@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /* BEGIN: Плавное прокручивание к анкору ссылки */
 const anchors = document.querySelectorAll('.js__go');
@@ -21,11 +21,11 @@ if (anchors.length) {
 
 
 /* BEGIN: Высчитываем сколько мне полных лет по моей дате рождения */
-let myData = "1986-10-04";
+let myData = '1986-10-04';
 
 function declOfNum(number, titles) {
   let cases = [2, 0, 1, 1, 1, 2];
-  return number + " " + titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+  return number + ' ' + titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
 }
 
 function birthDateToAge(b) {
@@ -46,20 +46,42 @@ if (js__myAge) {
 
 
 window.onload = function () {
-  //location.href = location.href;
-  //location.reload();
-
   /* BEGIN: Открытие и закрытие панели меню */
-  document.querySelector(".menu-toggle").onclick = function () {
-    document.querySelector("body").classList.toggle("menu-opened");
+  document.querySelector('.menu-toggle').onclick = function () {
+    document.querySelector('body').classList.toggle('menu-opened');
   }
+
+  document.querySelector('.menu-float__box').addEventListener('click', function () {
+    document.querySelector('body').classList.toggle('menu-opened');
+  });
   /* END:  */
+
 
   /* BEGIN: Закрытие панели меню на мобильном при клике на анкор */
   if (anchors.length && window.screen.width < 576) {
-    document.querySelector(".js__go-menu").onclick = function () {
-      document.querySelector("body").classList.toggle("menu-opened");
-    }
+    let js__goMenu = document.querySelectorAll('.js__go-menu');
+
+    [].forEach.call(js__goMenu, function (e) {
+      e.addEventListener('click', function () {
+        document.querySelector('body').classList.remove('menu-opened');
+      });
+    });
   }
   /* END:  */
+
+
+  /* BEGIN: Инициализация плавающего блока на странице */
+  window.addEventListener('scroll', function () {
+    if (pageYOffset >= 700) {
+      document.querySelector('body').classList.add('menu-fly');
+    } else {
+      document.querySelector('body').classList.remove('menu-fly');
+    }
+  });
+  /* END */
+
+
+  /* BEGIN: Получаем актуальный год и вставляет в селектор подвала */
+  document.querySelector('.js__get-year').innerHTML = String(new Date().getFullYear());
+  /* END */
 }
