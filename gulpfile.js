@@ -33,7 +33,6 @@ const css = () => {
 // js task
 const js = () => {
   return src('./app/js/scripts.js')
-    .pipe(uglify())
     .pipe(dest('./public_html/js'))
     .pipe(mode.development(browserSync.stream()));
 }
@@ -134,7 +133,7 @@ const watchForChanges = () => {
 }
 
 // public tasks
-exports.default = series(parallel(css, js, jsVendors, copyImages, copyFonts, html, copyFavicon), watchForChanges);
-exports.build = series(parallel(css, js, jsVendors, copyImages, copyFonts, html, copyFavicon));
+exports.default = series(parallel(css, js, copyImages, copyFonts, html, copyFavicon), watchForChanges);
+exports.build = series(parallel(css, js, copyImages, copyFonts, html, copyFavicon));
 exports.sprite = series(svgStore);
 exports.webpTask = series(webpTask);

@@ -6,7 +6,7 @@ const anchors = document.querySelectorAll('.js__go');
 if (anchors.length) {
   for (let anchor of anchors) {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault()
+      e.preventDefault();
 
       const blockID = anchor.getAttribute('href').substr(1)
 
@@ -84,4 +84,38 @@ window.onload = function () {
   /* BEGIN: Получаем актуальный год и вставляет в селектор подвала */
   document.querySelector('.js__get-year').innerHTML = String(new Date().getFullYear());
   /* END */
+}
+
+let form = document.querySelector('.contacts-form');
+
+window.onload = function () {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6LfXZCEaAAAAAO3QtLWSrG5ofpC1IMwBJqo0TCNg', { action: 'contact' }).then(function (token) {
+        var recaptchaResponse = document.getElementById('recaptchaResponse');
+        recaptchaResponse.value = token;
+
+        let formData = {
+          name: document.querySelector('.ui-field[name="ui_name"]').value,
+          email: document.querySelector('.ui-field[name="ui_email"]').value,
+          message: document.querySelector('.ui-field[name="ui_message"]').value
+        };
+
+        let request = new XMLHttpRequest();
+
+        request.addEventListener('load', function () {
+          // В этой части кода можно обрабатывать ответ от сервера
+          console.log(request.response);
+          alert('Ваша заявка успешно отправлена!');
+          form.innerHTML = '<h2>Спасибо за заявку!</h2>';
+        });
+
+        request.open('POST', '/php/sendmail.php', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send('ui_name=' + encodeURIComponent(formData.name) + '&ui_email=' + encodeURIComponent(formData.email) + '&ui_message=' + encodeURIComponent(formData.message));
+      });
+    });
+  });
 }
