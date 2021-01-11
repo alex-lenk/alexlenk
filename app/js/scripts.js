@@ -84,38 +84,93 @@ window.onload = function () {
   /* BEGIN: Получаем актуальный год и вставляет в селектор подвала */
   document.querySelector('.js__get-year').innerHTML = String(new Date().getFullYear());
   /* END */
-}
 
-let form = document.querySelector('.contacts-form');
 
-window.onload = function () {
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  let form = document.querySelector('.contacts-form');
 
-    grecaptcha.ready(function () {
-      grecaptcha.execute('6LfXZCEaAAAAAO3QtLWSrG5ofpC1IMwBJqo0TCNg', { action: 'contact' }).then(function (token) {
-        var recaptchaResponse = document.getElementById('recaptchaResponse');
-        recaptchaResponse.value = token;
+  if (form.length) {
 
-        let formData = {
-          name: document.querySelector('.ui-field[name="ui_name"]').value,
-          email: document.querySelector('.ui-field[name="ui_email"]').value,
-          message: document.querySelector('.ui-field[name="ui_message"]').value
-        };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-        let request = new XMLHttpRequest();
+      let data = new FormData(form);
 
-        request.addEventListener('load', function () {
-          // В этой части кода можно обрабатывать ответ от сервера
-          console.log(request.response);
-          alert('Ваша заявка успешно отправлена!');
-          form.innerHTML = '<h2>Спасибо за заявку!</h2>';
+      $('#alert').text('Processing...').fadeIn(0); // Display "Processing" to let the user know that the form is being submitted
+
+      grecaptcha.ready(function () {
+        grecaptcha.execute('6LfXZCEaAAAAAO3QtLWSrG5ofpC1IMwBJqo0TCNg', {action: 'contact'}).then(function (token) {
+          let recaptchaResponse = document.getElementById('recaptchaResponse');
+          recaptchaResponse.value = token;
+
+          console.log(getQueryString(data))
+
+          const request = new XMLHttpRequest();
+
+          // Указываем путь до файла на сервере, который будет обрабатывать наш запрос
+          const url = '/php/sendmail.php';
+
+          // Так же как и в GET составляем строку с данными, но уже без пути к файлу
+          //const params = "ui_name=" + id_product + "&qty_product=" + qty_product;
+
+          /* Указываем что соединение	у нас будет POST, говорим что путь к файлу в переменной url, и что запрос у нас
+     асинхронный, по умолчанию так и есть не стоит его указывать, еще есть 4-й параметр пароль авторизации, но этот
+     параметр тоже необязателен.*/
+          request.responseType = "json";
+
+          request.open("POST", url, true);
+
+          //В заголовке говорим что тип передаваемых данных закодирован.
+          request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+          request.addEventListener("readystatechange", () => {
+
+            if (request.readyState === 4 && request.status === 200) {
+              let obj = request.response;
+
+              console.log(request.responseText);
+              console.log(obj);
+            }
+          });
+
+          // Вот здесь мы и передаем строку с данными, которую формировали выше. И собственно выполняем запрос.
+          request.send(data);
+
+          // Make the Ajax call here
+          /*          $.ajax({
+                      url: '/php/sendmail.php',
+                      type: 'post',
+                      data: $('.contacts-form').serialize(),
+                      dataType: 'json',
+                      success: function (_response) {
+                        // The Ajax request is a success. _response is a JSON object
+                        var error = _response.error;
+                        var success = _response.success;
+                        if (error != "") {
+                          // In case of error, display it to user
+                          $('#alert').html(error);
+                        } else {
+                          // In case of success, display it to user and remove the submit button
+                          $('#alert').html(success);
+                          $('#submit-button').remove();
+                        }
+                      },
+                      error: function (jqXhr, json, errorThrown) {
+                        // In case of Ajax error too, display the result
+                        var error = jqXhr.responseText;
+                        $('#alert').html(error);
+                      }
+                    });*/
         });
-
-        request.open('POST', '/php/sendmail.php', true);
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        request.send('ui_name=' + encodeURIComponent(formData.name) + '&ui_email=' + encodeURIComponent(formData.email) + '&ui_message=' + encodeURIComponent(formData.message));
       });
     });
-  });
+
+
+    function getQueryString(formData) {
+      let pairs = [];
+      for (let [key, value] of formData.entries()) {
+        pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+      }
+      return '?' + pairs.join('&');
+    }
+  }
 }
