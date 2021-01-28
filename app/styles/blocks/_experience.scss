@@ -44,16 +44,6 @@
 @media (min-width: 576px) {
   .experience-name {
     position: relative;
-
-    &::before {
-      content: '';
-      width: 35px;
-      height: .5px;
-      background-color: #487efb;
-      position: absolute;
-      left: -52px;
-      top: 17px;
-    }
   }
 }
 
@@ -75,7 +65,7 @@
     flex-shrink: 0;
   }
   .experience-content {
-    padding-left: 65px;
+    padding-left: 30px;
     flex-grow: 1;
   }
 }
