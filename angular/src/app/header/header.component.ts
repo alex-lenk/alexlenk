@@ -1,10 +1,11 @@
-import {Component} from "@angular/core";
+import {Component, ViewEncapsulation} from "@angular/core";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.scss']
 })
+
 export class HeaderComponent {
   title = 'Alex Lenk'
   logo = '../../assets/img/logo.svg'

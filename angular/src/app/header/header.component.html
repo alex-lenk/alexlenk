@@ -8,26 +8,7 @@
         <div class="header-logo__name">{{ title }}</div>
       </div>
 
-      <nav class="menu">
-        <button type="button" class="menu-toggle">
-          <span class="sr-only">открыть меню</span>
-        </button>
-
-        <ul class="menu-list list-unstyled">
-          <li class="menu-item">
-            <a href="#who" class="menu-link js__go-menu js__go">Кто я?</a>
-          </li>
-          <li class="menu-item">
-            <a href="#experience" class="menu-link js__go-menu js__go">Где я работал?</a>
-          </li>
-          <li class="menu-item">
-            <a href="/portfolio.html" class="menu-link">Портфолио</a>
-          </li>
-          <li class="menu-item">
-            <a href="contacts.html" class="menu-link">Контакты</a>
-          </li>
-        </ul>
-      </nav>
+      <app-menu class="menu"></app-menu>
     </div>
 
     <h1 class="header-title">Frontend developer</h1>
@@ -41,7 +22,7 @@
     </div>
   </div>
 
-  <a href="#our-work" class="main-header__next js__go" (click)="OnClick()" rel="nofollow">
+  <a href="#who" class="main-header__next js__go" (click)="OnClick()" rel="nofollow">
     <span class="sr-only">в низ</span>
   </a>
 </header>

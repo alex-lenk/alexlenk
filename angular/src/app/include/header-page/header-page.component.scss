@@ -1,0 +1,52 @@
+.header-page {
+  padding-top: 70px;
+  padding-bottom: 50px;
+  box-shadow: 0 1px 10px #3bb5c4;
+  background: #24156b;
+  background: linear-gradient(to bottom, #3bb5c4 0, #24156b 100%);
+  flex: none;
+
+  &::before {
+    width: 100%;
+    height: 29px;
+    left: 0;
+    position: absolute;
+    background: url(../../../assets/img/decor/ruler.png) top left repeat-x;
+    content: '';
+  }
+}
+
+.header-page__inner {
+  display: flex;
+  align-items: center;
+}
+
+.header-page__logo {
+  color: #fff;
+  text-align: center;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.header-page__logo--icon {
+  width: 220px;
+  height: 158px;
+}
+
+.header-page__logo--name {
+  font-size: 30px;
+}
+
+@media (min-width: 768px) {
+  .header-page::before {
+    top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-page::before {
+    top: 0;
+  }
+}
