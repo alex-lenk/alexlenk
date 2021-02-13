@@ -1,1 +1,47 @@
-<p>contacts works!</p>
+<app-header-page></app-header-page>
+<article class="section-layer__content section-layer">
+  <div class="container">
+    <h1>Контактная информация</h1>
+
+    <div id="alert"></div>
+
+
+    <div class="contacts">
+      <form action="/php/sendmail.php" method="POST" id="ajax_form" class="contacts-column contacts-form">
+        <input type="hidden" name="form_name">
+
+        <div class="ui-group">
+          <input type="text" name="ui_name" placeholder="Имя" class="ui-field hide-placeholder" required>
+        </div>
+
+        <div class="ui-group">
+          <input type="email" name="ui_email" placeholder="Email" class="ui-field hide-placeholder" required>
+        </div>
+
+        <div class="ui-group">
+          <textarea name="ui_message" class="ui-field hide-placeholder" placeholder="Сообщение" required></textarea>
+        </div>
+
+        <!--        <div class="agreement ui-group">
+                  <label class="label-checkbox">
+                    <input type="checkbox" name="ui_check" class="checkbox-custom">
+                    <span class="checkbox-custom-view">Я даю свое согласие на обработку персональных данных</span>
+                  </label>
+                </div>-->
+
+        <button type="submit" class="btn btn-blue" id="submit-button">
+          <span class="btn-text">Отправить</span>
+        </button>
+
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+      </form>
+
+      <div class="contacts-column">
+        <p>Адрес: г. Москва, ул. Поклонная, 3, вход Е1</p>
+        <p>Телефон: +7 (968) 740-96-46</p>
+      </div>
+    </div>
+
+    <div id="result_form"></div>
+  </div>
+</article>
