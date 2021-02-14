@@ -2,6 +2,38 @@
   display: flex;
 }
 
+.ui-field.ng-touched {
+  &.ng-invalid {
+    border-color: red;
+  }
+
+  &.ng-valid {
+    border-color: green;
+  }
+
+  &.ng-untouched {
+  }
+
+  &.ng-pristine {
+  }
+
+  &.ng-dirty {
+  }
+
+  &.ng-pending {
+  }
+}
+
+.checkbox-custom-view {
+  &.ng-invalid.ng-touched::before {
+    border-color: red;
+  }
+
+  &.ng-valid::before {
+    border-color: green;
+  }
+}
+
 @media (min-width: 768px) {
   .contacts {
     margin-left: -15px;
