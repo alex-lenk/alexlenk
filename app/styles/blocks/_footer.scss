@@ -4,6 +4,15 @@
   color: #fff;
 }
 
+.footer-copy__link {
+  color: inherit;
+  transition: color .2s ease-in-out;
+
+  &:hover {
+    color: #d7d7d7;
+  }
+}
+
 @media (min-width: 768px) {
   .footer-wrap {
     display: flex;
