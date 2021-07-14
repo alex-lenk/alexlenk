@@ -90,7 +90,7 @@ const copyFavicon = () => {
 }
 
 const html = () => {
-  return src('./app/view/*.html')
+  return src(['./app/view/**/*.html', '!./app/view/partial/*.html'])
     .pipe(fileinclude())
     .pipe(mode.production(htmlbeautify()))
     .pipe(dest('public_html'))
