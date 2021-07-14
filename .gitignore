@@ -55,11 +55,6 @@ build
 
 *.iml
 my-app/
-public_html/*.html
-public_html/js
-public_html/fonts
-public_html/css
-public_html/favicon
 source
 
 
@@ -75,3 +70,4 @@ yarn-error.log*
 yarn.lock
 /.pnp
 .pnp.js
+package-lock.json
