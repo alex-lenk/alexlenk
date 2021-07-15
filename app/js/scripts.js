@@ -85,7 +85,7 @@ window.onload = function () {
   document.querySelector('.js__get-year').innerHTML = String(new Date().getFullYear());
   /* END */
 
-
+/*
   let form = document.querySelector('.contacts-form');
 
   if (form.length) {
@@ -112,9 +112,9 @@ window.onload = function () {
           // Так же как и в GET составляем строку с данными, но уже без пути к файлу
           //const params = "ui_name=" + id_product + "&qty_product=" + qty_product;
 
-          /* Указываем что соединение	у нас будет POST, говорим что путь к файлу в переменной url, и что запрос у нас
+          /!* Указываем что соединение	у нас будет POST, говорим что путь к файлу в переменной url, и что запрос у нас
      асинхронный, по умолчанию так и есть не стоит его указывать, еще есть 4-й параметр пароль авторизации, но этот
-     параметр тоже необязателен.*/
+     параметр тоже необязателен.*!/
           request.responseType = "json";
 
           request.open("POST", url, true);
@@ -136,7 +136,7 @@ window.onload = function () {
           request.send(data);
 
           // Make the Ajax call here
-          /*          $.ajax({
+          /!*          $.ajax({
                       url: '/php/sendmail.php',
                       type: 'post',
                       data: $('.contacts-form').serialize(),
@@ -159,7 +159,7 @@ window.onload = function () {
                         var error = jqXhr.responseText;
                         $('#alert').html(error);
                       }
-                    });*/
+                    });*!/
         });
       });
     });
@@ -172,5 +172,5 @@ window.onload = function () {
       }
       return '?' + pairs.join('&');
     }
-  }
+  }*/
 }
