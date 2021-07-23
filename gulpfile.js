@@ -33,6 +33,7 @@ const css = () => {
 // js task
 const js = () => {
   return src('./app/js/scripts.js')
+    .pipe(uglify())
     .pipe(dest('./public_html/js'))
     .pipe(mode.development(browserSync.stream()));
 }

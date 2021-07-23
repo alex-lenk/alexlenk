@@ -71,3 +71,4 @@ yarn.lock
 /.pnp
 .pnp.js
 package-lock.json
+/yandex_*
