@@ -48,8 +48,11 @@
     "vinyl-ftp": "latest"
   },
   "dependencies": {
+    "babel-loader": "latest",
     "gulp-html-beautify": "latest",
-    "uglifyjs-webpack-plugin": "latest",
-    "babel-loader": "latest"
+    "ng2-smooth-scroll": "^1.0.1",
+    "ngx-page-scroll": "^7.0.3",
+    "ngx-page-scroll-core": "^7.0.3",
+    "uglifyjs-webpack-plugin": "latest"
   }
 }

@@ -1,0 +1,127 @@
+.radio-custom-label {
+  width: 125px;
+  height: 50px;
+  margin-bottom: 0;
+  display: inline-block;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.radio-custom-yes,
+.radio-custom-no {
+  width: 63px;
+  height: 50px;
+  float: right;
+  border-left: 1px solid;
+  border-color: #e3e3e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &::before {
+    width: 125px;
+    height: 50px;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 1px solid #e3e3e3;
+    border-radius: 25px;
+  }
+
+  &::after {
+    visibility: hidden;
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 16px;
+    left: 24px;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22405.272%22%20height%3D%22405.272%22%20viewBox%3D%220%200%20405.272%20405.272%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%234f8ad9%22%20d%3D%22M393.4%20124.425L179.604%20338.208c-15.832%2015.835-41.514%2015.835-57.36%200L11.877%20227.836c-15.838-15.835-15.838-41.52%200-57.358%2015.84-15.84%2041.52-15.84%2057.355-.006l81.698%2081.7L336.038%2067.063c15.84-15.84%2041.523-15.83%2057.358%200%2015.835%2015.838%2015.835%2041.514.006%2057.36z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all 0.3s ease;
+  }
+}
+
+.radio-custom {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+
+  &:checked + .radio-custom-yes, + .radio-custom-no {
+    border-color: #4f8ad9;
+
+    &::before {
+      border-color: inherit;
+    }
+
+    &::after {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+/*
+<label class="label-checkbox">
+    <input type="checkbox" class="checkbox-custom">
+    <span class="checkbox-custom-view">для вязки</span>
+</label>
+*/
+
+.checkbox-custom {
+  display: none;
+
+  &:checked + .checkbox-custom-view {
+    &:after {
+      visibility: visible;
+    }
+  }
+
+  &-view {
+    padding-left: 35px;
+    cursor: pointer;
+    position: relative;
+
+    &:before {
+      width: 20px;
+      height: 20px;
+      top: 0;
+      left: 0;
+      position: absolute;
+      background-color: #ffffff;
+      content: '';
+      border: 1px solid #e5e5e5;
+    }
+
+    &:after {
+      width: 13px;
+      height: 7px;
+      top: 5px;
+      left: 4px;
+      position: absolute;
+      border-bottom: 2px solid #888;
+      border-left: 2px solid #888;
+      content: '';
+      visibility: hidden;
+      transform: rotate(-45deg);
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    a, span {
+      padding-left: 5px;
+    }
+  }
+}

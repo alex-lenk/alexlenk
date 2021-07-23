@@ -1,0 +1,19 @@
+<div class="ui-group">
+  <input type="text" name="ui_name" placeholder="Заголовок" class="ui-field hide-placeholder"
+         [(ngModel)]="title"
+         #titleInput
+  >
+</div>
+
+<div class="ui-group">
+  <textarea name="ui_message" class="ui-field hide-placeholder" placeholder="Сообщение" cols="30" rows="10"
+            [(ngModel)]="text"></textarea>
+</div>
+
+<button type="submit" class="btn btn-blue" (click)="addPost()">
+  <span class="btn-text">Добавить</span>
+</button>
+
+<button type="submit" class="btn btn-blue" (click)="focusTitle()">
+  <span class="btn-text">Добавить</span>
+</button>
