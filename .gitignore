@@ -56,10 +56,10 @@ build
 *.iml
 my-app/
 public_html/*.html
-public_html/js
-public_html/fonts
-public_html/css
-public_html/favicon
+public_html/js/
+public_html/fonts/
+public_html/css/
+public_html/favicon/
 source
 
 
