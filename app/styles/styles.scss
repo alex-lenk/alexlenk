@@ -1,20 +1,50 @@
-@import "general/fonts";
-@import "general/reboot";
 @import "general/variables";
+/* bootstrap-5.1.3 */
+@import "lib/bootstrap/functions";
+@import "lib/bootstrap/variables";
+@import "lib/bootstrap/mixins";
+@import "lib/bootstrap/root";
+@import "lib/bootstrap/reboot";
+
+/* General */
+@import "general/fonts";
 @import "general/mixin";
+
 @import "general/core";
-@import "general/form";
-@import "general/checkbox-radio";
-@import "general/btn";
 @import "general/animations";
+@import "general/form";
+@import "general/btn";
+
+/* Blocks */
+@import "blocks/nav";
+
+/* Home section */
 @import "blocks/header";
-@import "blocks/menu";
-@import "blocks/footer";
+@import "home/home__header";
+
 @import "blocks/section-layer";
-@import "blocks/contacts";
 @import "blocks/resume";
+@import "blocks/work";
 @import "blocks/experience";
+@import "blocks/contacts";
+@import "blocks/footer";
+
+.not-fount {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #2b323c;
+}
+
+.not-fount__inner {
+  min-height: 1000px;
+  background: url(../img/bg/404.svg) no-repeat center 100px;
+  background-size: contain
+}
 
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+/*
+@import "general/checkbox-radio";
+*/

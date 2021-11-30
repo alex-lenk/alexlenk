@@ -33,9 +33,9 @@
     "webpack-stream": "latest",
     "gulp-ex-file-include": "latest",
     "gulp-uglify-es": "latest",
-    "gulp-svgmin": "latest",
-    "gulp-svgstore": "latest",
-    "svg-sprite": "latest",
+    "gulp-svgmin": "^4.1.0",
+    "gulp-svgstore": "^8.0.0",
+    "svg-sprite": "^1.5.3",
     "path": "latest",
     "gulp-imagemin": "latest",
     "imagemin-jpeg-recompress": "latest",
@@ -45,14 +45,10 @@
     "imagemin-zopfli": "latest",
     "gulp-webp": "latest",
     "gulp-concat": "latest",
-    "vinyl-ftp": "latest"
-  },
-  "dependencies": {
+    "vinyl-ftp": "latest",
+    "gulp-newer": "latest",
     "babel-loader": "latest",
-    "gulp-html-beautify": "latest",
-    "ng2-smooth-scroll": "^1.0.1",
-    "ngx-page-scroll": "^7.0.3",
-    "ngx-page-scroll-core": "^7.0.3",
-    "uglifyjs-webpack-plugin": "latest"
-  }
+    "gulp-html-beautify": "latest"
+  },
+  "dependencies": {}
 }

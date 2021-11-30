@@ -12,12 +12,13 @@ const basePath = require('path');
 const svgmin = require('gulp-svgmin');
 const svgstore = require('gulp-svgstore');
 const uglify = require('gulp-uglify-es').default;
-const imagemin = require("gulp-imagemin");
+/*const imagemin = require("gulp-imagemin");
 const imageminPngquant = require("imagemin-pngquant");
 const imageminZopfli = require("imagemin-zopfli");
-const imageminMozjpeg = require("imagemin-mozjpeg");
-const webp = require("gulp-webp");
-const imageminWebp = require("imagemin-webp");
+const imageminMozjpeg = require("imagemin-mozjpeg");*/
+//const webp = require("gulp-webp");
+//const imageminWebp = require("imagemin-webp");
+const newer = require('gulp-newer');
 
 // css task
 const css = () => {
@@ -33,14 +34,16 @@ const css = () => {
 // js task
 const js = () => {
   return src('./app/js/scripts.js')
-    .pipe(uglify())
+    //.pipe(uglify()) @todo раскомментировать в продакшине
     .pipe(dest('./public_html/js'))
     .pipe(mode.development(browserSync.stream()));
 }
 
 // copy tasks
+/*
 const copyImages = () => {
-  return src('./app/img/**/*.{jpg,jpeg,png,svg}')
+  return src('./app/img/!**!/!*.{jpg,jpeg,png,svg}')
+    .pipe(newer('./public_html/img'))
     .pipe(imagemin([
       imageminPngquant({
         speed: 5,
@@ -68,10 +71,12 @@ const copyImages = () => {
     ]))
     .pipe(dest('./public_html/img'));
 }
+*/
 
+/*
 
 const webpTask = () => {
-  return src('./app/img/**/*.{jpg,jpeg,png}')
+  return src('./app/img/!**!/!*.{jpg,jpeg,png}')
     .pipe(webp(imageminWebp({
       lossless: true,
       quality: 6,
@@ -79,6 +84,7 @@ const webpTask = () => {
     })))
     .pipe(dest('./public_html/img'));
 }
+*/
 
 const copyFonts = () => {
   return src('./app/fonts/**/*.{woff,woff2}')
@@ -91,15 +97,16 @@ const copyFavicon = () => {
 }
 
 const html = () => {
-  return src(['./app/view/**/*.html', '!./app/view/partial/*.html'])
+  return src(['./app/view/*.html'])
     .pipe(fileinclude())
     .pipe(mode.production(htmlbeautify()))
     .pipe(dest('public_html'))
     .pipe(mode.development(browserSync.stream()));
 }
 
+/*
 const svgStore = () => {
-  return src('./app/img/sprite/*.svg')
+  return src('./app/img/sprites/!*.svg')
     .pipe(svgmin(function (file) {
       let prefix = basePath.basename(file.relative, basePath.extname(file.relative));
       return {
@@ -114,6 +121,35 @@ const svgStore = () => {
     .pipe(svgstore())
     .pipe(dest('./public_html/img'));
 }
+*/
+
+function __svgSprite() {
+  return src('./app/img/sprites/*.svg')
+    .pipe(svgmin(function getOptions(file) {
+      let prefix = basePath.basename(
+        file.relative,
+        basePath.extname(file.relative)
+      );
+      return {
+        plugins: [
+          'removeDoctype',
+          'removeComments',
+          'sortAttrs',
+          {
+            name: 'cleanupIDs',
+            parmas: {
+              prefix: prefix + '-',
+              minify: true
+            }
+          }
+        ]
+      }
+    }))
+    .pipe(svgstore())
+    .pipe(dest('./public_html/img'));
+}
+
+
 
 // watch task
 const watchForChanges = () => {
@@ -127,14 +163,14 @@ const watchForChanges = () => {
 
   watch('./app/styles/**/*.scss', css);
   watch('./app/js/**/*.js', js);
-  watch('./app/view/*.html', html);
-  watch('./app/img/**/*.{png,jpg,jpeg,svg}', series(copyImages));
+  watch('./app/view/**/*.html', html);
+  //watch('./app/img/**/*.{png,jpg,jpeg,svg}', series(copyImages));
   watch('./app/fonts/**/*.{woff,woff2}', series(copyFonts));
   watch('./app/favicon/*.*', series(copyFavicon));
 }
 
 // public tasks
-exports.default = series(parallel(css, js, copyImages, copyFonts, html, copyFavicon), watchForChanges);
-exports.build = series(parallel(css, js, copyImages, copyFonts, html, copyFavicon));
-exports.sprite = series(svgStore);
-exports.webpTask = series(webpTask);
+exports.default = series(parallel(css, js, copyFonts, html, copyFavicon), watchForChanges);
+exports.build = series(parallel(css, js, copyFonts, html, copyFavicon));
+exports.__svgSprite = series(__svgSprite);
+//exports.webpTask = series(webpTask);

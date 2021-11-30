@@ -22,57 +22,69 @@
 
 </head>
 <body>
-<header class="main-header">
-    <div class="main-header__inner container">
-        <div class="header-panel">
-            <div class="header-logo">
-                <div class="header-logo__icon">
-                    <img src="img/logo.svg" alt="AlexLenk.ru HTML/CSS coder">
-                </div>
-                <div class="header-logo__name">Alex Lenk</div>
-            </div>
-
-            <nav class="menu">
-                <button type="button" class="menu-toggle"><span class="sr-only">открыть меню</span></button>
-
-                <ul class="menu-list list-unstyled">
-                    <li class="menu-item">
-                        <a href="#who" class="menu-link js__go-menu js__go">Кто я?</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#experience" class="menu-link js__go-menu js__go">Где я работал?</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="/portfolio.html" class="menu-link">Портфолио</a>
-                    </li>
-<!--                    <li class="menu-item">
-                        <a href="contacts.html" class="menu-link">Контакты</a>
-                    </li>-->
-                </ul>
-            </nav>
-        </div>
-
-        <h1 class="header-title">Фронтенд разработчик</h1>
-
-        <div class="header-text">
-          &lt; HTML /&gt;
-            {CSS}
-            js()
-            кодер
-        </div>
+<nav class="nav__panel">
+  <div class="nav__panel-inner container">
+    <div class="nav__logo">
+      <div class="nav__logo-wrap">
+        <img src="/img/logo-long.svg" class="nav__logo-img" alt="AlexLenk.ru HTML/CSS/JS coder">
+      </div>
+      <div class="nav__logo-name">Alex Lenk</div>
     </div>
 
-    <a href="#our-work" class="main-header__next js__go" rel="nofollow">
-        <span class="sr-only">в низ</span>
-    </a>
+    <button type="button" class="nav__toggle js-nav__toggle">
+      <span class="sr-only">открыть меню</span>
+    </button>
+
+    <ul class="nav__menu list__unstyled js-nav__menu">
+      <li class="nav__menu-item">
+        <a href="#who" class="nav__menu-link js__go"># Обо мне</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="#skills" class="nav__menu-link js__go"># Мои навыки</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="#contacts" class="nav__menu-link js__go"># Связаться</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="/portfolio.html" class="nav__menu-link">Портфолио</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="/experience.html" class="nav__menu-link">Опыт работы</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="/blog.html" class="nav__menu-link">Блог</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="home__header">
+  <div class="home__header-inner container">
+
+    <h1 class="home__header-title">Фронтенд разработчик</h1>
+
+    <div class="home__header-subtitle">
+      &lt; HTML /&gt; &nbsp; &nbsp; { CSS } &nbsp; &nbsp; js(кодер)
+    </div>
+
+    <div class="home__header-text">
+      Я нашел свое призвание — создавать и конструировать сайты.<br>
+      Творю чудеса, помогая продукту ожить и обрести законченный индивидуальный образ.
+    </div>
+  </div>
+
+  <a href="#our-work" class="home__header-next js__go" rel="nofollow">
+    <span class="sr-only">в низ</span>
+  </a>
 </header>
 
 
-<section class="resume section-layer">
-  <div class="work-inner container">
-    <h2 class="section-layer__title">Мои навыки как разработчика</h2>
 
-    <ul class="resume-list list-unstyled">
+<section class="resume section-layer" id="skills">
+  <div class="work-inner container">
+    <h2 class="section-layer__title">Мои навыки</h2>
+
+    <ul class="resume-list list__unstyled">
       <li class="resume-item">
         <div class="resume-name">HTML</div>
         <div class="resume-percent">94%</div>
@@ -138,7 +150,7 @@
       </li>
       <li class="resume-item">
         <div class="resume-name">1C-Bitrix</div>
-        <div class="resume-percent">61%</div>
+        <div class="resume-percent">53%</div>
         <div class="resume-process">
           <div class="resume-process__count" style="width: 61%"></div>
         </div>
@@ -151,7 +163,7 @@
   <div class="work-inner container">
     <h2 class="section-layer__title">Портфолио</h2>
 
-    <ul class="work-list list-unstyled">
+    <ul class="work-list list__unstyled">
       <!-- Begin work-item -->
       <li class="work-item">
         <div class="work-item__inner">
@@ -325,194 +337,10 @@
 </section>
 
 
-<section class="experience section-layer" id="experience">
-  <div class="work-inner container">
-    <h2 class="section-layer__title">Опыт работы</h2>
-
-    <ul class="experience-list list-unstyled">
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">12/2019 — по наст.</div>
-          <div class="experience-date__time">1 год 8 месяц</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">ООО «Алианта Групп»</div>
-          <div class="experience-post">Фронтенд разработчик</div>
-          <div class="experience-text">
-            1. Полная фронтенд-разработка нового концепта онлайн-витрины wineexpres.ru<br>
-            2. Разработка корпоративных сайтов компании<br>
-            3. Добавление нового функционала на CMS Битрикс<br>
-            3. Совмещал работу в бекенд-разработке
-          </div>
-        </div>
-      </li>
-
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">07/2018 — 12/2019</div>
-          <div class="experience-date__time">1 год 6 месяцев</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">ООО «Смарт Оранж»</div>
-          <div class="experience-post">Разработчик фронтенда</div>
-          <div class="experience-text">
-           <ul>
-             <li>Верстка новых интернет-магазинов на 1С-Битрикс (дизайн из макетов Figma, Illustrator, Photoshop).</li>
-             <li>Командная фронтэнд разработка компонентов bitrix (HTML+CSS+jQuery/JS+PHP).</li>
-             <li>Изменения/добавление функционала в уже существующие проекты компании.</li>
-             <li>Создание и поддержка корпоративных сайтов для группы компаний «RDC Group».</li>
-             <li>Верстка лендинг и акционных страниц.</li>
-             <li>Верстка e-mail писем.</li>
-             <li>Работаем по методология scrum. Двух недельные спринты, еженедельные короткие митап встречи, оценки задач по
-             story points, постановка задач из JIRA.</li>
-           </ul>
-          </div>
-        </div>
-      </li>
-
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">11/2017 — 06/2018</div>
-          <div class="experience-date__time">8 месяцев</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">ООО «Система Контроля Договорных Отношений +»</div>
-          <div class="experience-post">Разработчик</div>
-          <div class="experience-text">
-            В мои обязанности входило:
-
-            <ol>
-              <li>Переверстать всю систему документооборота согласно новому UI дизайну (с чем я успешно справился)</li>
-              <li>Создание корпоративных сайтов для компании и её партнёров от frontend до backend реализации</li>
-              <li>Переделка и поддержка текущего сайта компании skdo.ru</li>
-            </ol>
-
-            Сотрудничество с компанией завершил на хорошей ноте, свою функцию я выполнил, это переделка основной системы https://i.skdo.ru в ней я переделал 2 кабинета СРО и ЧСРО и еще 2 подкабинета.
-          </div>
-        </div>
-      </li>
-
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">07/2017 — 10/2017</div>
-          <div class="experience-date__time">4 месяца</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">«AZRO STUDIO»</div>
-          <div class="experience-post">Веб разработчик</div>
-          <div class="experience-text">
-            <ol>
-              <li>HTML верстка (HTML+CSS+JavaScript);</li>
-              <li>Интеграция верстки в MODX Revolutions;</li>
-              <li>Верстка интернет магазинов;</li>
-              <li>Верстка корпоративных сайтов.</li>
-            </ol>
-          </div>
-        </div>
-      </li>
-
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">07/2016 — 06/2017</div>
-          <div class="experience-date__time">1 год</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">ООО «Аполло 9»</div>
-          <div class="experience-post">Ведущий HTML верстальщик</div>
-          <div class="experience-text">
-            Руководил группой верстальщиков.
-            <br>
-            <br>
-            Введение новых верстальщиков в особенности верстки в компании.<br>
-            Верстка макетов (PSD формата adobe photoshop).<br>
-            Выполнение поставленных задач в системе Jira на основе ТЗ и макетов.
-          </div>
-        </div>
-      </li>
-
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">01/2016 — 06/2016</div>
-          <div class="experience-date__time">6 месяцев</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">ООО «Ремонтник.ру»</div>
-          <div class="experience-post">HTML-верстальщик</div>
-          <div class="experience-text">
-            Верстка макетов (png формата adobe fireworks).
-            <br>
-            <br>
-            Приобрел умение работать в большой команде и работать по workflow.<br>
-            Умение работать с GIT.<br>
-            Приобрел навык работы с фраемворком django.
-            <br>
-            <br>
-            Процесс верстки:<br>
-            Выполнение поставленных в Jira задач на основе ТЗ и макетов.<br>
-            Недельные спринты<br>
-            Обязательный Code Review всех изменений перед выгрузкой.<br>
-            Обязательное покрытие кода тестами перед выгрузкой.<br>
-            Ежедневные обсуждения рабочего процесса с целью введения команды в курс дела и оптимизации рабочего
-          </div>
-        </div>
-      </li>
-
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">02/2014 — 11/2015</div>
-          <div class="experience-date__time">1 год 10 месяцев</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">ООО «Социальные услуги»</div>
-          <div class="experience-post">Помощник программиста</div>
-          <div class="experience-text">
-            <ol>
-              <li>Верстка сайтов (HTML+CSS+jQuery). Верстка с помощью фраемворков bootstrap \ foundation;</li>
-              <li>Интеграция готовой верстки в CMS WordPress;</li>
-              <li>Интеграция готовой верстки в CMS MODX Revo/Evo;</li>
-              <li>Проверка ошибок на сайтах и их устранение;</li>
-              <li>Создание, распространение и курирование сайтов.</li>
-            </ol>
-            <br>
-            <br>
-            Изредка в мои обязанности входило:
-            <br>
-            <br>
-            - Наполнение сайтов текстовой, графической и другими видами информации;<br>
-            - Обучение новых контент-менеджеров;<br>
-            - Управления различными хостингами и их настройкой;<br>
-            - Покупка, настройка доменов. Настройке DNS, веб-почты;<br>
-            - Ремонт/замена/чистка железа (ноутбуки, стационарные компьютеры);<br>
-            - Настройка ПО компьютеров;<br>
-            - Изредка выполнял обязанности руководителя IT отдела;<br>
-            - Настройка электронных торгов на госплощадках.
-          </div>
-        </div>
-      </li>
-
-      <li class="experience-item">
-        <div class="experience-date">
-          <div class="experience-date__period">12/2012 — 02/2014</div>
-          <div class="experience-date__time">1 год 3 месяца</div>
-        </div>
-        <div class="experience-content">
-          <div class="experience-name">фриланс</div>
-          <div class="experience-post">Html-верстальщик</div>
-          <div class="experience-text">
-            1. HTML верстка (HTML+CSS+jQuery);<br>
-            2. Интеграция верстки в WordPress;<br>
-            3. Опыт управления различными хостингами и их настройкой;<br>
-            4. Опыт в покупке, настройке доменов. Владею знаниями и опытом в настройке DNS, веб-почты сервера;<br>
-            5. Опыт и умение пользоваться photoshop и другими графическими редакторами.
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
 
 <div class="section-layer__content section-layer" id="who">
   <article class="container">
+    <h2>Обо мне</h2>
     <p class="text-bold">Быстрый рассказ обо мне и краткая история моей жизни.</p>
     <p>
       Привет! Меня зовут Александр. Я&nbsp;опытный фронтенд разработчик. Со&nbsp;свежим взглядом и&nbsp;креативным
@@ -632,13 +460,67 @@
   </article>
 </div>
 
+
+<div class="contacts section-layer" id="contacts">
+  <div class="container">
+    <h2 class="section-layer__title">Связь со мною</h2>
+
+    <div class="contacts__section">
+      <form class="contact__form contact__col">
+        <div class="ui__group">
+          <label class="ui__label" for="contact-form__name">Введите Ваше имя*</label>
+          <input type="text" name="your_name" id="contact-form__name" class="ui__field" required="">
+        </div>
+
+        <div class="ui__group">
+          <label class="ui__label" for="contact-form__mail">Введите Ваш email*</label>
+          <input type="email" name="your_email" id="contact-form__mail" class="ui__field" required="">
+        </div>
+
+        <div class="ui__group">
+          <label class="ui__label" for="contact-form__text">Ваше сообщение*</label>
+          <textarea name="your_massage" id="contact-form__text" class="ui__field" required=""></textarea>
+        </div>
+
+        <button class="btn-blue btn">
+          <span class="btn-text">Отправить</span>
+        </button>
+      </form>
+
+      <div class="contact__col">
+        <div class="contacts__requisites-item">
+          <div class="contacts__requisites-decor">
+            <svg class="contacts__requisites-icon">
+              <use xlink:href="img/sprites.svg#phone"></use>
+            </svg>
+          </div>
+          <a href="tel:79268962695" class="contacts__requisites-link">
+            +7 (968) 740 96-46
+          </a>
+        </div>
+
+        <div class="contacts__requisites-item">
+          <div class="contacts__requisites-decor">
+            <svg class="contacts__requisites-icon">
+              <use xlink:href="img/sprites.svg#email"></use>
+            </svg>
+          </div>
+          Адрес: г. Москва, ул. Поклонная, 3, вход Е1
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <footer class="footer">
     <div class="footer-wrap container">
         <div class="footer-copy">
           © 2012-<span class="js__get-year"></span>
           <a href="https://alexlenk.ru" class="footer-copy__link">AlexLenk.ru</a> опытный фронтенд разработчик - HTML CSS JavaScript кодер.
           <br>
-          Место расположение город Москва и Московская область
+          Место расположение: г. Москва и Московская область
         </div>
 
         <div>
@@ -658,10 +540,7 @@
 </footer>
 
 
-<div class="menu-float"><div class="container"><div class="menu-float__box">Меню</div></div></div>
-
-
-<script defer src="js/scripts.js?ver=1.5"></script>
+<script defer src="js/scripts.js?ver=1.6"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-04D3S549PV"></script>

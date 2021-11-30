@@ -1,7 +1,10 @@
-'use strict';
+'use strict'
+
+const BODY = document.querySelector('body')
+
 
 /* BEGIN: Плавное прокручивание к анкору ссылки */
-const anchors = document.querySelectorAll('.js__go');
+const anchors = document.querySelectorAll('.js__go')
 
 if (anchors.length) {
   for (let anchor of anchors) {
@@ -20,85 +23,104 @@ if (anchors.length) {
 /* END:  */
 
 
-/* BEGIN: Высчитываем сколько мне полных лет по моей дате рождения */
-let myData = '1986-10-04';
+/* BEGIN: Инициализация плавающего блока на странице */
+let navFly = 'nav__fly'
+let navFlyInterval = 'nav__fly-interval'
 
-function declOfNum(number, titles) {
-  let cases = [2, 0, 1, 1, 1, 2];
-  return number + ' ' + titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+/*
+window.addEventListener('scroll', function () {
+  if (pageYOffset > 700) {
+    BODY.classList.add(navFly);
+  } else if (pageYOffset > 450) {
+    console.log('450')
+  } else {
+    BODY.classList.remove(navFly);
+  }
+})
+*/
+
+const throttle = (func, ms) => { // объявляем функцию throttle
+  let locked = false // переменная которая отвечает за блокировку вызова функции
+
+  return function () { // эта функция запускается при каждом событии движения курсора
+    if (locked) return // если заблокировано, то прекращаем выполнение этой функции
+
+    const context = this // запоминаем передаваемую функцию func
+    const args = arguments // запоминаем параметры передаваемой функции func
+
+    locked = true // блокируем вызов функции
+
+    setTimeout(() => { // устанавливаем время ожидания
+
+      func.apply(context, args) // выполняем переданную функцию func
+      locked = false // снимаем блокировку
+    }, ms) // подставляем значение параметра ms
+  }
 }
 
-function birthDateToAge(b) {
-  let n = new Date();
-  b = new Date(b);
-  let age = n.getFullYear() - b.getFullYear();
-  return n.setFullYear(1970) < b.setFullYear(1970) ? age - 1 : age;
+document.addEventListener('scroll', throttle(function () {
+  if (pageYOffset > 300) {
+    ///console.log('nav__fly-interval');
+    BODY.classList.add(navFlyInterval);
+  }
+  if (pageYOffset > 900) {
+    //console.log('add');
+    BODY.classList.add(navFly);
+  } else if (pageYOffset < 900) {
+    //console.log('pageScrollUp');
+    BODY.classList.remove(navFlyInterval);
+    BODY.classList.remove(navFly);
+  }
+}, 900))
+
+/* END */
+
+
+/* BEGIN: Открытие и закрытие панели меню */
+const jsNavMenu = '.js-nav__menu'
+const jsNavToggle = '.js-nav__toggle'
+
+let menuOpened = 'menu-opened';
+
+function toggleMenu() {
+  BODY.classList.toggle(menuOpened);
 }
 
-let myAge = declOfNum(birthDateToAge(myData), ['год', 'года', 'лет']);
+document.querySelector('.js-nav__toggle').addEventListener('click', () => toggleMenu())
 
-const js__myAge = document.querySelector('.js__my-age');
-
-if (js__myAge) {
-  js__myAge.innerHTML = myAge;
-}
+BODY.addEventListener('click', e => { // при клике в любом месте окна браузера
+  const target = e.target // находим элемент, на котором был клик
+  if (BODY.classList.contains(menuOpened) && !target.closest(jsNavMenu) && !target.closest(jsNavToggle)) {
+    // если этот элемент или его родительские элементы не окно навигации и не кнопка
+    toggleMenu()
+  }
+})
 /* END:  */
 
 
-window.onload = function () {
-  /* BEGIN: Открытие и закрытие панели меню */
-  document.querySelector('.menu-toggle').onclick = function () {
-    document.querySelector('body').classList.toggle('menu-opened');
+/* BEGIN: Высчитываем сколько мне полных лет по моей дате рождения */
+let js__myAge = document.querySelector('.js__my-age')
+
+const getMyAge = () => {
+  let
+    currentDate = new Date(), //Текущая дата
+    getCurrentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()), //Текущая дата без времени
+    dateBirth = new Date(1986, 10, 4), //Дата рождения
+    dateBirthCurrent = new Date(getCurrentDate.getFullYear(), dateBirth.getMonth(), dateBirth.getDate()), //Дата рождения в текущем году
+    myAge = getCurrentDate.getFullYear() - dateBirth.getFullYear();//Возраст = текущий год - год рождения
+
+  if (getCurrentDate < dateBirthCurrent) {
+//Если ДР в этом году ещё предстоит, то вычитаем из age один год
+    myAge = myAge - 1;
+    js__myAge.innerHTML = "" + myAge;
+  } else {
+    js__myAge.innerHTML = "" + myAge;
   }
-
-  document.querySelector('.menu-float__box').addEventListener('click', function () {
-    document.querySelector('body').classList.toggle('menu-opened');
-  });
-  /* END:  */
-
-
-  /* BEGIN: Закрытие панели меню на мобильном при клике на анкор */
-  if (anchors.length && window.screen.width < 576) {
-    let js__goMenu = document.querySelectorAll('.js__go-menu');
-
-    [].forEach.call(js__goMenu, function (e) {
-      e.addEventListener('click', function () {
-        document.querySelector('body').classList.remove('menu-opened');
-      });
-    });
-  }
-  /* END:  */
-
-
-  /* BEGIN: Инициализация плавающего блока на странице */
-  window.addEventListener('scroll', function () {
-    if (pageYOffset >= 700) {
-      document.querySelector('body').classList.add('menu-fly');
-    } else {
-      document.querySelector('body').classList.remove('menu-fly');
-    }
-  });
-  /* END */
-
-
-  /* BEGIN: Получаем актуальный год и вставляет в селектор подвала */
-  //document.querySelector('.js__get-year').innerHTML = String(new Date().getFullYear());
-  /* END */
-
-  $(document).ready(function () {
-    // Removing AjaxForm success message
-    if (typeof (AjaxForm) != 'undefined') {
-      AjaxForm.Message.success = function () {
-      };
-    }
-  });
 }
 
-// Show AjaxForm success message in modal
-$(document).on('af_complete', function (event, response) {
-  var form = response.form;
-  if (response.success) {
-    $.fancybox.close();
-    $.fancybox.open('<div class="popup" id="popup-call"><div class="popup-title">' + response.message + '</div></div>');
-  }
-});
+if (js__myAge) getMyAge()
+/* END:  */
+
+/* BEGIN: Получаем актуальный год и вставляет в селектор подвала */
+document.querySelector('.js__get-year').innerHTML = String(new Date().getFullYear());
+/* END */

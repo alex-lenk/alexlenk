@@ -21,37 +21,49 @@
 <meta name="theme-color" content="#5485dc">
 
 </head>
-<body>
-<header class="header-page">
-    <div class="container">
-        <div class="header-page__inner">
-            <a href="/" class="header-logo">
-                <div class="header-logo__icon">
-                    <img src="img/logo.svg" alt="AlexLenk.ru HTML/CSS coder">
-                </div>
-                <div class="header-logo__name">Alex Lenk</div>
-                <div>frontend developer</div>
-            </a>
-
-            <nav class="menu">
-                <button type="button" class="menu-toggle"><span class="sr-only">открыть меню</span></button>
-
-                <ul class="menu-list list-unstyled">
-                    <li class="menu-item"><a href="/" class="menu-link">Главная</a></li>
-                    <li class="menu-item"><a href="/portfolio.html" class="menu-link">Портфолио</a></li>
-                    <!--<li class="menu-item"><a href="contacts.html" class="menu-link">Контакты</a></li>-->
-                </ul>
-            </nav>
-        </div>
+<body class="header__page">
+<nav class="nav__panel">
+  <div class="nav__panel-inner container">
+    <div class="nav__logo">
+      <div class="nav__logo-wrap">
+        <img src="/img/logo-long.svg" class="nav__logo-img" alt="AlexLenk.ru HTML/CSS/JS coder">
+      </div>
+      <div class="nav__logo-name">Alex Lenk</div>
     </div>
-</header>
+
+    <button type="button" class="nav__toggle js-nav__toggle">
+      <span class="sr-only">открыть меню</span>
+    </button>
+
+    <ul class="nav__menu list__unstyled js-nav__menu">
+      <li class="nav__menu-item">
+        <a href="#who" class="nav__menu-link js__go"># Обо мне</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="#skills" class="nav__menu-link js__go"># Мои навыки</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="#contacts" class="nav__menu-link js__go"># Связаться</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="/portfolio.html" class="nav__menu-link">Портфолио</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="/experience.html" class="nav__menu-link">Опыт работы</a>
+      </li>
+      <li class="nav__menu-item">
+        <a href="/blog.html" class="nav__menu-link">Блог</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 
 <article class="work section-layer">
   <div class="work-inner container">
     <h1 class="section-layer__title">Портфолио</h1>
 
-    <ul class="work-list list-unstyled">
+    <ul class="work-list list__unstyled">
       <!-- Begin work-item -->
       <li class="work-item">
         <div class="work-item__inner">
@@ -491,7 +503,7 @@
           © 2012-<span class="js__get-year"></span>
           <a href="https://alexlenk.ru" class="footer-copy__link">AlexLenk.ru</a> опытный фронтенд разработчик - HTML CSS JavaScript кодер.
           <br>
-          Место расположение город Москва и Московская область
+          Место расположение: г. Москва и Московская область
         </div>
 
         <div>
@@ -511,10 +523,7 @@
 </footer>
 
 
-<div class="menu-float"><div class="container"><div class="menu-float__box">Меню</div></div></div>
-
-
-<script defer src="js/scripts.js?ver=1.5"></script>
+<script defer src="js/scripts.js?ver=1.6"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-04D3S549PV"></script>
