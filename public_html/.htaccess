@@ -11,6 +11,12 @@
 RewriteEngine On
 RewriteBase /
 
+RewriteCond %{HTTP_HOST} uslugi-wordpress.ru
+RewriteRule (.*) https://alexlenk.ru/$1 [R=301,L]
+
+#RewriteCond %{HTTP_HOST} developer-master.ru
+#RewriteRule (.*) https://alexlenk.ru/$1 [R=301,L]
+
 
 # Prevent rewrite the .well-known directory used by LetsEncrypt by rules below of this rule
 RewriteRule "^\.well-known/" - [L]
