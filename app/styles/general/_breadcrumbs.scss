@@ -1,0 +1,45 @@
+.breadcrumbs {
+  margin-bottom: 32px;
+  line-height: 1;
+  font-size: 15px;
+  display: flex;
+  position: relative;
+  top: -12px;
+  color: #9dacc3;
+}
+
+.breadcrumbs__item {
+  position: relative;
+
+  &::after {
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 8px;
+    right: -13px;
+    border-radius: 50%;
+    content: '';
+  }
+
+  &:not(:last-child) {
+    margin-right: 24px;
+
+    &::after {
+      background-color: #dbdae0;
+    }
+  }
+}
+
+.breadcrumbs__link {
+  color: #fff;
+  transition: color .2s ease-in-out;
+
+  &:hover {
+    color: #ff4d03;
+  }
+}
+
+.blog {
+  color: #9dacc3;
+  background-color: #2a313b;
+}

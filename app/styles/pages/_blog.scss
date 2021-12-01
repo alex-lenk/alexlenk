@@ -1,0 +1,148 @@
+.blog__widget {
+  padding: 16px;
+  color: #ff4d03;
+  background-color: #202123;
+}
+
+.blog__widget-item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.blog__widget-link {
+  color: inherit;
+  display: block;
+  transition: color .2s ease-in-out;
+
+  &::before {
+    width: 5px;
+    height: 5px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background-color: #ff4d03;
+    display: inline-flex;
+    content: '';
+    transition: background-color .2s ease-in-out;
+  }
+
+  &:hover {
+    color: #9dacc3;
+
+    &::before {
+      background-color: #9dacc3;
+    }
+  }
+}
+
+.blog__item {
+  color: inherit;
+  background-color: #313842;
+  position: relative;
+  transition: color .2s ease-in-out;
+
+  &:not(:last-of-type) {
+    margin-bottom: 32px;
+  }
+
+  &:hover {
+    color: #ff4d03;
+  }
+}
+
+.blog__media {
+  overflow: hidden;
+}
+
+.blog__media-img {
+  object-fit: cover;
+}
+
+.blog__date {
+  padding: 5px 10px;
+  margin-left: -60px;
+  position: absolute;
+  color: #202123;
+  background-color: #9dacc3;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.blog__date-icon {
+  width: 14px;
+  height: 14px;
+  margin-left: 6px;
+  fill: #202123;
+}
+
+@media (min-width: 768px) {
+  .blog__container {
+    margin-left: -16px;
+    margin-right: -16px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .blog__list,
+  .blog__side {
+    padding-left: 16px;
+    padding-right: 16px;
+    flex: 0 0 auto;
+  }
+
+  .blog__list {
+    width: 75%;
+  }
+
+  .blog__side {
+    width: 25%;
+  }
+  .blog__body {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 992px) {
+  .blog__item {
+    display: flex;
+  }
+  .blog__media {
+    width: 30%;
+    flex: 0 0 auto;
+  }
+  .blog__media-img {
+    width: 100%;
+    height: 100%;
+  }
+  .blog__body {
+    width: 70%;
+    flex: 0 0 auto;
+  }
+  .blog__date {
+    left: 15%;
+    bottom: -10px;
+  }
+}
+
+@media (max-width: 991px) {
+  .blog__item {
+    display: block;
+  }
+  .blog__date {
+    right: 32px;
+    top: -10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .blog__side {
+    margin-top: 32px;
+  }
+  .blog__item {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .blog__body {
+    padding: 24px 0;
+  }
+}

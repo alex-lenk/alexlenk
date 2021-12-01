@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  @@include('partial/head.html', {
+  "title": "Блог фронтенд разработчика",
+  "description": "Блог фронтенд разработчика"
+  })
+</head>
+<body class="header__page">
+@@include('partial/nav-page.html')
+
+<article class="blog section-layer">
+  <div class="container">
+    <ul class="breadcrumbs list__unstyled">
+      <li class="breadcrumbs__item">
+        <a href="index.html" class="breadcrumbs__link">Главная</a>
+      </li>
+      <li class="breadcrumbs__item">
+        Блог
+      </li>
+    </ul>
+
+    <h1 class="section-layer__title">
+      Блог фронтенд разработчика
+    </h1>
+
+    <div class="blog__container">
+      <section class="blog__list">
+        <a href="blog-single.html" class="blog__item">
+          <div class="blog__media">
+              <img src="img/example/01.jpg"
+                   alt="js TAB - ТАБы на чистом JavaScript" class="blog__media-img">
+          </div>
+
+          <div class="blog__body">
+            <h4 class="media-heading">
+                js TAB - ТАБы на чистом JavaScript
+            </h4>
+
+            <div>
+              Реализация TAB на чистом JavaScript без jQuery плагинов и прочих зависимостей.
+            </div>
+
+            <div class="blog__date">
+              <svg class="blog__date-icon">
+                <use xlink:href="img/sprites.svg#date"></use>
+              </svg>
+              20.11.2021 г.
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-single.html" class="blog__item">
+          <div class="blog__media">
+              <img src="img/example/01.jpg"
+                   alt="js TAB - ТАБы на чистом JavaScript" class="blog__media-img">
+          </div>
+
+          <div class="blog__body">
+            <h4 class="media-heading">
+                js TAB - ТАБы на чистом JavaScript
+            </h4>
+
+            <div>
+              Реализация TAB на чистом JavaScript без jQuery плагинов и прочих зависимостей.
+            </div>
+
+            <div class="blog__date">
+              <svg class="blog__date-icon">
+                <use xlink:href="img/sprites.svg#date"></use>
+              </svg>
+              20.11.2021 г.
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-single.html" class="blog__item">
+          <div class="blog__media">
+              <img src="img/example/01.jpg"
+                   alt="js TAB - ТАБы на чистом JavaScript" class="blog__media-img">
+          </div>
+
+          <div class="blog__body">
+            <h4 class="media-heading">
+                js TAB - ТАБы на чистом JavaScript
+            </h4>
+
+            <div>
+              Реализация TAB на чистом JavaScript без jQuery плагинов и прочих зависимостей.
+            </div>
+
+            <div class="blog__date">
+              <svg class="blog__date-icon">
+                <use xlink:href="img/sprites.svg#date"></use>
+              </svg>
+              20.11.2021 г.
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <aside class="blog__side">
+        <ul class="blog__widget list__unstyled">
+          <li class="blog__widget-item">
+            <a href="blog-single.html" class="blog__widget-link">
+              js TAB - ТАБы на чистом JavaScript
+            </a>
+          </li>
+
+          <li class="blog__widget-item">
+            <a href="blog-single.html" class="blog__widget-link">
+              js TAB - ТАБы на чистом JavaScript
+            </a>
+          </li>
+
+          <li class="blog__widget-item">
+            <a href="blog-single.html" class="blog__widget-link">
+              js TAB - ТАБы на чистом JavaScript
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <div class="pagination">
+        <ul class="pagination pagination-lg"></ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+@@include('partial/footer.html')
+
+@@include('partial/scripts.html')
+</body>
+</html>
