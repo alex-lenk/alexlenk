@@ -121,6 +121,10 @@ const getMyAge = () => {
 if (js__myAge) getMyAge()
 /* END:  */
 
+
 /* BEGIN: Получаем актуальный год и вставляет в селектор подвала */
-document.querySelector('.js__get-year').innerHTML = String(new Date().getFullYear());
+let js__getYear = document.querySelector('.js__get-year');
+if (js__getYear) {
+  js__getYear.innerHTML = String(new Date().getFullYear());
+}
 /* END */
