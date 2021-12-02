@@ -80,3 +80,6 @@ public_html/assets
 public_html/config.core.php
 public_html/index.php
 public_html/project
+public_html/cms/
+modx-2.8.3-pl/
+modx-2.8.3-pl-advanced.zip
