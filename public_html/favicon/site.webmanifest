@@ -1,6 +1,6 @@
 {
-    "name": "Alex Lenk",
-    "short_name": "Alex Lenk",
+    "name": "AlexLenk",
+    "short_name": "AlexLenk",
     "icons": [
         {
             "src": "/favicon/android-chrome-192x192.png",
@@ -13,7 +13,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#5485dc",
-    "background_color": "#5485dc",
+    "theme_color": "#237bbe",
+    "background_color": "#237bbe",
+    "start_url": "https://alexlenk.ru/",
     "display": "standalone"
 }
