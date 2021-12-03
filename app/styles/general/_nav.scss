@@ -9,6 +9,12 @@
   transition: transform .2s ease-in-out;
 }
 
+.nav__panel-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .nav__menu-item {
   position: relative;
   color: #9dacc2;
@@ -29,6 +35,8 @@
 .nav__logo {
   color: #fff;
   text-align: center;
+  display: flex;
+  align-items: flex-start;
 
   &:hover {
     color: #fff;
@@ -41,7 +49,7 @@
 
 .nav__logo-name {
   line-height: 1;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.064em;
   color: #D2EBFF;
   text-transform: uppercase;
 }
@@ -110,16 +118,18 @@
 
 @media (min-width: 992px) {
   .nav__logo-wrap {
-    height: 115px;
-    margin-bottom: 13px;
+    height: 72px;
   }
   .nav__logo-name {
-    font-size: 30px;
+    font-size: 24px;
+    margin-left: 22px;
+    margin-top: 3px;
   }
   .nav__toggle {
     display: none;
   }
   .nav__menu {
+    line-height: 1;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
@@ -162,15 +172,9 @@
 }
 
 @media (min-width: 1200px) {
-  .nav__logo {
-    position: absolute;
-    top: 48px;
-    left: 50%;
-    margin-left: -100px;
-  }
   .nav__menu-item {
     &:not(:last-child) {
-      margin-right: 32px;
+      margin-right: 80px;
     }
 
     &:nth-child(4) {
