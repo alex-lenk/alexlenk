@@ -1,6 +1,6 @@
 .btn {
   border: 0;
-  background-color: transparent;
+  background: transparent;
   text-align: center;
   cursor: pointer;
   line-height: 1;
@@ -70,6 +70,21 @@
   &:focus {
     outline: none;
   }
+}
+
+.btn__secondary {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 45px;
+  font-size: 16px;
+  color: #222;
+  background-color: #FFD115;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 }
 
 .btn-text {

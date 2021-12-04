@@ -27,52 +27,53 @@ if (anchors.length) {
 let navFly = 'nav__fly'
 let navFlyInterval = 'nav__fly-interval'
 
-/*
-window.addEventListener('scroll', function () {
-  if (pageYOffset > 700) {
-    BODY.classList.add(navFly);
-  } else if (pageYOffset > 450) {
-    console.log('450')
-  } else {
-    BODY.classList.remove(navFly);
+if (window.screen.width > 800) {
+  /*
+  window.addEventListener('scroll', function () {
+    if (pageYOffset > 700) {
+      BODY.classList.add(navFly);
+    } else if (pageYOffset > 450) {
+      console.log('450')
+    } else {
+      BODY.classList.remove(navFly);
+    }
+  })
+  */
+
+  const throttle = (func, ms) => { // объявляем функцию throttle
+    let locked = false // переменная которая отвечает за блокировку вызова функции
+
+    return function () { // эта функция запускается при каждом событии движения курсора
+      if (locked) return // если заблокировано, то прекращаем выполнение этой функции
+
+      const context = this // запоминаем передаваемую функцию func
+      const args = arguments // запоминаем параметры передаваемой функции func
+
+      locked = true // блокируем вызов функции
+
+      setTimeout(() => { // устанавливаем время ожидания
+
+        func.apply(context, args) // выполняем переданную функцию func
+        locked = false // снимаем блокировку
+      }, ms) // подставляем значение параметра ms
+    }
   }
-})
-*/
 
-const throttle = (func, ms) => { // объявляем функцию throttle
-  let locked = false // переменная которая отвечает за блокировку вызова функции
-
-  return function () { // эта функция запускается при каждом событии движения курсора
-    if (locked) return // если заблокировано, то прекращаем выполнение этой функции
-
-    const context = this // запоминаем передаваемую функцию func
-    const args = arguments // запоминаем параметры передаваемой функции func
-
-    locked = true // блокируем вызов функции
-
-    setTimeout(() => { // устанавливаем время ожидания
-
-      func.apply(context, args) // выполняем переданную функцию func
-      locked = false // снимаем блокировку
-    }, ms) // подставляем значение параметра ms
-  }
+  document.addEventListener('scroll', throttle(function () {
+    if (pageYOffset > 300) {
+      ///console.log('nav__fly-interval');
+      BODY.classList.add(navFlyInterval);
+    }
+    if (pageYOffset > 900) {
+      //console.log('add');
+      BODY.classList.add(navFly);
+    } else if (pageYOffset < 900) {
+      //console.log('pageScrollUp');
+      BODY.classList.remove(navFlyInterval);
+      BODY.classList.remove(navFly);
+    }
+  }, 900))
 }
-
-document.addEventListener('scroll', throttle(function () {
-  if (pageYOffset > 300) {
-    ///console.log('nav__fly-interval');
-    BODY.classList.add(navFlyInterval);
-  }
-  if (pageYOffset > 900) {
-    //console.log('add');
-    BODY.classList.add(navFly);
-  } else if (pageYOffset < 900) {
-    //console.log('pageScrollUp');
-    BODY.classList.remove(navFlyInterval);
-    BODY.classList.remove(navFly);
-  }
-}, 900))
-
 /* END */
 
 
