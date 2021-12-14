@@ -17,9 +17,7 @@ RewriteRule (.*) https://alexlenk.ru/$1 [R=301,L]
 #RewriteCond %{HTTP_HOST} developer-master.ru
 #RewriteRule (.*) https://alexlenk.ru/$1 [R=301,L]
 
-Redirect 301 /portfolio https://developer-master.ru/portfolio.html
-Redirect 301 / https://developer-master.ru/about.html
-Redirect 301 / https://developer-master.ru/contacts.html
+
 
 
 # Prevent rewrite the .well-known directory used by LetsEncrypt by rules below of this rule
