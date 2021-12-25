@@ -170,6 +170,9 @@ const watchForChanges = () => {
 }
 
 // public tasks
+exports.css = series(css);
+exports.js = series(js);
+exports.html = series(html);
 exports.default = series(parallel(css, js, copyFonts, html, copyFavicon), watchForChanges);
 exports.build = series(parallel(css, js, copyFonts, html, copyFavicon));
 exports.__svgSprite = series(__svgSprite);
