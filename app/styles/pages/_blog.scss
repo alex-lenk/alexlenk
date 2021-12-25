@@ -73,6 +73,26 @@
   fill: #202123;
 }
 
+.blog__container-text {
+  margin-top: 64px;
+}
+
+.blog__container-decor {
+  width: 50px;
+  height: 50px;
+  fill: #9dacc3;
+  margin: -16px 0 20px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .blog__container-text {
+    padding: 16px;
+    background-color: #313842;
+    order: 2;
+  }
+}
+
 @media (min-width: 1000px) {
   .blog__container {
     margin-left: -16px;
@@ -132,10 +152,10 @@
     display: block;
   }
   .blog__item {
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .blog__body {
     padding: 24px 0;
