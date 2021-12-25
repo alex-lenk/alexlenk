@@ -84,12 +84,15 @@
   margin: -16px 0 20px;
   display: block;
 }
-
 @media (min-width: 768px) {
   .blog__container-text {
     padding: 16px;
     background-color: #313842;
     order: 2;
+  }
+
+  .blog__title {
+    margin-bottom: 3rem;
   }
 }
 
